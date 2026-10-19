@@ -11,12 +11,18 @@ const SocialLinksSchema = z.object({
   instagram: z.url().optional(),
   tiktok: z.url().optional(),
   website: z.url().optional(),
+  // Número de celular peruano (9 dígitos) al que apunta el botón de WhatsApp.
+  whatsapp: z
+    .string()
+    .regex(/^9\d{8}$/)
+    .optional(),
 });
 
+// Chambea Pe solo está disponible en Lima por ahora: cualquier otra provincia o departamento es un error de datos.
 const LocationSchema = z.object({
   district: z.string().min(1),
-  province: z.string().min(1),
-  department: z.string().min(1),
+  province: z.literal("Lima", "Chambea Pe solo está disponible en Lima por ahora."),
+  department: z.literal("Lima", "Chambea Pe solo está disponible en Lima por ahora."),
 });
 
 export type EntrepreneurshipLocation = z.infer<typeof LocationSchema>;

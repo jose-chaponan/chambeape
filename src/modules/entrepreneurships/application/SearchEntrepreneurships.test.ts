@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { EntrepreneurshipSchema } from '../domain/Entrepreneurship'
 import { localDatabase } from '../../../data/localDatabase'
 import { getEntrepreneurshipDistricts, getRelatedEntrepreneurships, searchEntrepreneurships } from './SearchEntrepreneurships'
 
@@ -33,7 +34,8 @@ describe('searchEntrepreneurships', () => {
 
     expect(new Set(districts).size).toBe(districts.length)
     expect(districts).toEqual([...districts].sort((a, b) => a.localeCompare(b, 'es')))
-    expect(districts).toContain('Yanahuara')
+    expect(districts).toContain('Chorrillos')
+    expect(districts).not.toContain('Yanahuara')
   })
 
   it('gives every entrepreneurship products and a location', () => {
@@ -59,5 +61,21 @@ describe('getRelatedEntrepreneurships', () => {
     const ferreteria = all.find((entrepreneurship) => entrepreneurship.id === 'ent-ferreteria-el-constructor')!
 
     expect(getRelatedEntrepreneurships(all, ferreteria)).toEqual([])
+  })
+})
+
+describe('Lima-only coverage', () => {
+  it('registers every entrepreneurship in a Lima district', () => {
+    all.forEach((entrepreneurship) => {
+      expect(entrepreneurship.location.province).toBe('Lima')
+      expect(entrepreneurship.location.department).toBe('Lima')
+    })
+  })
+
+  it('rejects a location outside Lima', () => {
+    const outside = { ...all[0], location: { district: 'Yanahuara', province: 'Arequipa', department: 'Arequipa' } }
+
+    expect(EntrepreneurshipSchema.safeParse(outside).success).toBe(false)
+    expect(EntrepreneurshipSchema.safeParse(all[0]).success).toBe(true)
   })
 })

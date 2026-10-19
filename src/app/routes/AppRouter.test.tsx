@@ -147,7 +147,7 @@ describe('application routes', () => {
     expect(screen.getByRole('heading', { name: 'Lo que ofrecen' })).toBeInTheDocument()
     expect(screen.getByText('Pachamanca')).toBeInTheDocument()
     expect(screen.getByText('Cuy frito')).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Dónde encontrarlos' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Ubicación y contacto' })).toBeInTheDocument()
     expect(screen.getAllByText('Jesús María', { exact: false }).length).toBeGreaterThan(0)
     expect(screen.getByRole('link', { name: /ver zona en el mapa/i })).toHaveAttribute(
       'href',
@@ -155,6 +155,47 @@ describe('application routes', () => {
     )
     expect(screen.getAllByRole('img', { name: 'Portada de Sabor Andino' }).length).toBeGreaterThan(0)
     expect(screen.getByRole('link', { name: 'Inicio' })).toHaveAttribute('href', '/home')
+  })
+
+  it('points each map link to the Lima district where the entrepreneurship is registered', () => {
+    useAuthStore.getState().startSession(user)
+
+    localDatabase.entrepreneurships.forEach((entrepreneurship) => {
+      const { unmount } = renderRoute(`/emprendimientos/${entrepreneurship.id}`)
+      const href = screen.getByRole('link', { name: /ver zona en el mapa/i }).getAttribute('href') ?? ''
+
+      expect(decodeURIComponent(href)).toContain(`query=${entrepreneurship.location.district}, Lima, Perú`)
+      expect(screen.getAllByText(entrepreneurship.location.district, { exact: false }).length).toBeGreaterThan(0)
+      unmount()
+    })
+  })
+
+  it('shows the social networks and a WhatsApp contact button on the detail', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/emprendimientos/ent-sabor-andino')
+
+    const contact = screen.getByRole('link', { name: 'Contáctanos por WhatsApp' })
+    expect(contact).toHaveAttribute('href', expect.stringMatching(/^https:\/\/wa\.me\/519\d{8}\?text=/))
+    expect(decodeURIComponent(contact.getAttribute('href') ?? '')).toContain('Sabor Andino')
+    expect(contact).toHaveAttribute('target', '_blank')
+    expect(screen.getByRole('link', { name: /ver zona en el mapa/i })).toBeInTheDocument()
+
+    expect(screen.getByRole('link', { name: 'Facebook' })).toHaveAttribute('href', expect.stringContaining('facebook.com'))
+    expect(screen.getByRole('link', { name: 'Instagram' })).toHaveAttribute('href', expect.stringContaining('instagram.com'))
+    expect(screen.getByRole('link', { name: 'TikTok' })).toHaveAttribute('href', expect.stringContaining('tiktok.com'))
+    // Cada red lleva su propio logo dibujado como SVG (el de TikTok no viene en MUI).
+    ;['Instagram', 'Facebook', 'TikTok'].forEach((network) => {
+      expect(screen.getByRole('link', { name: network }).querySelector('svg path')).not.toBeNull()
+    })
+  })
+
+  it('has Facebook, Instagram, TikTok and WhatsApp registered for every entrepreneurship', () => {
+    localDatabase.entrepreneurships.forEach(({ businessName, socialLinks }) => {
+      expect(socialLinks.facebook, businessName).toBeTruthy()
+      expect(socialLinks.instagram, businessName).toBeTruthy()
+      expect(socialLinks.tiktok, businessName).toBeTruthy()
+      expect(socialLinks.whatsapp, businessName).toMatch(/^9\d{8}$/)
+    })
   })
 
   it('opens the photo viewer from the detail gallery', () => {

@@ -46,7 +46,12 @@
       ],
       "location": { "district": "Jesús María", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/sabor-andino/manager.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.saborandino",
+        "instagram": "https://www.instagram.com/chambeape.saborandino",
+        "tiktok": "https://www.tiktok.com/@chambeape.saborandino",
+        "whatsapp": "900000001"
+      },
       "photoUrls": [
         "/emprendimientos/sabor-andino/entrada.webp",
         "/emprendimientos/sabor-andino/restaurante.webp",
@@ -70,9 +75,14 @@
         "Mantas tejidas",
         "Llaveros artesanales"
       ],
-      "location": { "district": "Yanahuara", "province": "Arequipa", "department": "Arequipa" },
+      "location": { "district": "Chorrillos", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/manitos-del-sur/manager.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.manitosdelsur",
+        "instagram": "https://www.instagram.com/chambeape.manitosdelsur",
+        "tiktok": "https://www.tiktok.com/@chambeape.manitosdelsur",
+        "whatsapp": "900000002"
+      },
       "photoUrls": [
         "/emprendimientos/manitos-del-sur/artesania.webp",
         "/emprendimientos/manitos-del-sur/jarrones.webp",
@@ -99,7 +109,12 @@
       ],
       "location": { "district": "Barranco", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/hilo-nativo/manager.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.hilonativo",
+        "instagram": "https://www.instagram.com/chambeape.hilonativo",
+        "tiktok": "https://www.tiktok.com/@chambeape.hilonativo",
+        "whatsapp": "900000003"
+      },
       "photoUrls": [
         "/emprendimientos/hilo-nativo/pendiente.webp",
         "/emprendimientos/hilo-nativo/poncho.webp",
@@ -124,7 +139,12 @@
       ],
       "location": { "district": "Santiago de Surco", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/botanica-viva/portada.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.botanicaviva",
+        "instagram": "https://www.instagram.com/chambeape.botanicaviva",
+        "tiktok": "https://www.tiktok.com/@chambeape.botanicaviva",
+        "whatsapp": "900000004"
+      },
       "photoUrls": [
         "/emprendimientos/botanica-viva/galeria-1.webp",
         "/emprendimientos/botanica-viva/galeria-2.webp",
@@ -151,7 +171,12 @@
       ],
       "location": { "district": "Magdalena del Mar", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/casa-quinua/manager.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.casaquinua",
+        "instagram": "https://www.instagram.com/chambeape.casaquinua",
+        "tiktok": "https://www.tiktok.com/@chambeape.casaquinua",
+        "whatsapp": "900000005"
+      },
       "photoUrls": [
         "/emprendimientos/casa-quinua/cojines.webp",
         "/emprendimientos/casa-quinua/platos.webp"
@@ -177,7 +202,12 @@
       ],
       "location": { "district": "Breña", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/sastreria-rios/sastre.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.sastreriarios",
+        "instagram": "https://www.instagram.com/chambeape.sastreriarios",
+        "tiktok": "https://www.tiktok.com/@chambeape.sastreriarios",
+        "whatsapp": "900000006"
+      },
       "photoUrls": [
         "/emprendimientos/sastreria-rios/herramientas-sastre.webp",
         "/emprendimientos/sastreria-rios/maniki.webp",
@@ -206,7 +236,12 @@
       ],
       "location": { "district": "Lurigancho-Chosica", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/luz-de-valle/manager.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.luzdevalle",
+        "instagram": "https://www.instagram.com/chambeape.luzdevalle",
+        "tiktok": "https://www.tiktok.com/@chambeape.luzdevalle",
+        "whatsapp": "900000007"
+      },
       "photoUrls": [
         "/emprendimientos/luz-de-valle/velas-aromaticas.webp",
         "/emprendimientos/luz-de-valle/velas-collection.webp",
@@ -232,7 +267,12 @@
       ],
       "location": { "district": "Ate", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/ferreteria-el-constructor/portada.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.ferreteriaelconstructor",
+        "instagram": "https://www.instagram.com/chambeape.ferreteriaelconstructor",
+        "tiktok": "https://www.tiktok.com/@chambeape.ferreteriaelconstructor",
+        "whatsapp": "900000008"
+      },
       "photoUrls": [
         "/emprendimientos/ferreteria-el-constructor/galeria-1.webp",
         "/emprendimientos/ferreteria-el-constructor/galeria-2.webp",
@@ -257,7 +297,12 @@
       ],
       "location": { "district": "Pueblo Libre", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/emolientes-don-pepe/portada.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.emolientesdonpepe",
+        "instagram": "https://www.instagram.com/chambeape.emolientesdonpepe",
+        "tiktok": "https://www.tiktok.com/@chambeape.emolientesdonpepe",
+        "whatsapp": "900000009"
+      },
       "photoUrls": [
         "/emprendimientos/emolientes-don-pepe/galeria-1.webp",
         "/emprendimientos/emolientes-don-pepe/galeria-2.webp"
@@ -283,7 +328,12 @@
       ],
       "location": { "district": "San Miguel", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/panaderia-buen-horno/portada.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.panaderiabuenhorno",
+        "instagram": "https://www.instagram.com/chambeape.panaderiabuenhorno",
+        "tiktok": "https://www.tiktok.com/@chambeape.panaderiabuenhorno",
+        "whatsapp": "900000010"
+      },
       "photoUrls": [
         "/emprendimientos/panaderia-buen-horno/galeria-1.webp",
         "/emprendimientos/panaderia-buen-horno/galeria-2.webp",
@@ -308,7 +358,12 @@
       ],
       "location": { "district": "La Molina", "province": "Lima", "department": "Lima" },
       "coverImageUrl": "/emprendimientos/verde-casa/portada.webp",
-      "socialLinks": {},
+      "socialLinks": {
+        "facebook": "https://www.facebook.com/chambeape.verdecasa",
+        "instagram": "https://www.instagram.com/chambeape.verdecasa",
+        "tiktok": "https://www.tiktok.com/@chambeape.verdecasa",
+        "whatsapp": "900000011"
+      },
       "photoUrls": [
         "/emprendimientos/verde-casa/galeria-1.webp",
         "/emprendimientos/verde-casa/galeria-2.webp",

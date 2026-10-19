@@ -1,10 +1,11 @@
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded'
-import MusicNoteRoundedIcon from '@mui/icons-material/MusicNoteRounded'
 import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded'
 import PlaceRoundedIcon from '@mui/icons-material/PlaceRounded'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
+import WhatsAppIcon from '@mui/icons-material/WhatsApp'
+import type { SxProps, Theme } from '@mui/material'
 import { Box, Button, Chip, Container, Divider, Paper, Stack, Typography } from '@mui/material'
 import { useEffect, useMemo, type ReactElement } from 'react'
 import { Link as RouterLink, useLocation, useParams } from 'react-router-dom'
@@ -14,6 +15,7 @@ import {
   getEntrepreneurshipCategories,
 } from '../../../app/container'
 import { APP_BAR_HEIGHT } from '../../../app/theme/appTheme'
+import { TikTokIcon } from '../../../shared/components/TikTokIcon'
 import { getRelatedEntrepreneurships } from '../application/SearchEntrepreneurships'
 import type { Entrepreneurship } from '../domain/Entrepreneurship'
 import { AppBreadcrumbs, type BreadcrumbItem } from './components/AppBreadcrumbs'
@@ -23,10 +25,48 @@ import { EntrepreneurshipGallery } from './components/EntrepreneurshipGallery'
 import { PageShell } from './components/PageShell'
 import { VerifiedBadge } from './components/VerifiedBadge'
 
-const SOCIAL_LINKS: { key: keyof Entrepreneurship['socialLinks']; label: string; icon: ReactElement }[] = [
-  { key: 'instagram', label: 'Instagram', icon: <InstagramIcon /> },
-  { key: 'facebook', label: 'Facebook', icon: <FacebookRoundedIcon /> },
-  { key: 'tiktok', label: 'TikTok', icon: <MusicNoteRoundedIcon /> },
+type SocialLinkKey = Exclude<keyof Entrepreneurship['socialLinks'], 'whatsapp'>
+
+// El verde oficial de WhatsApp con texto oscuro: el texto blanco sobre ese verde no llega al contraste mínimo.
+const WHATSAPP_GREEN = '#25D366'
+const WHATSAPP_GREEN_HOVER = '#1fb956'
+const WHATSAPP_INK = '#062b14'
+
+// Al pasar el cursor, cada red toma sus colores oficiales (texto e ícono blancos sobre ellos).
+const FACEBOOK_BLUE = '#1877F2'
+const INSTAGRAM_GRADIENT = 'linear-gradient(45deg, #d6531f 0%, #dc2743 35%, #cc2366 60%, #8134af 100%)'
+const TIKTOK_BLACK = '#010101'
+const TIKTOK_CYAN = '#25F4EE'
+const TIKTOK_RED = '#FE2C55'
+
+const brandHover = (background: string, extra?: SxProps<Theme>): SxProps<Theme> => ({
+  '&:hover, &:focus-visible': {
+    color: '#fff',
+    borderColor: 'transparent',
+    background,
+  },
+  ...extra,
+})
+
+const SOCIAL_LINKS: {
+  key: SocialLinkKey
+  label: string
+  icon: ReactElement
+  hoverSx?: SxProps<Theme>
+}[] = [
+  { key: 'instagram', label: 'Instagram', icon: <InstagramIcon />, hoverSx: brandHover(INSTAGRAM_GRADIENT) },
+  { key: 'facebook', label: 'Facebook', icon: <FacebookRoundedIcon />, hoverSx: brandHover(FACEBOOK_BLUE) },
+  {
+    key: 'tiktok',
+    label: 'TikTok',
+    icon: <TikTokIcon />,
+    // El "glitch" cian y rojo de la marca, solo en el ícono.
+    hoverSx: brandHover(TIKTOK_BLACK, {
+      '&:hover .MuiButton-startIcon, &:focus-visible .MuiButton-startIcon': {
+        filter: `drop-shadow(-1.5px -1px 0 ${TIKTOK_CYAN}) drop-shadow(1.5px 1px 0 ${TIKTOK_RED})`,
+      },
+    }),
+  },
   { key: 'website', label: 'Sitio web', icon: <LanguageRoundedIcon /> },
 ]
 
@@ -101,9 +141,14 @@ export function EntrepreneurshipDetailPage() {
     entrepreneurship
   const images = [coverImageUrl, ...photoUrls].filter((src): src is string => Boolean(src))
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${location.district}, ${location.province}, ${location.department}, Perú`,
+    `${location.district}, Lima, Perú`,
   )}`
   const socials = SOCIAL_LINKS.filter((social) => socialLinks[social.key])
+  const whatsappUrl = socialLinks.whatsapp
+    ? `https://wa.me/51${socialLinks.whatsapp}?text=${encodeURIComponent(
+        `Hola, vi ${businessName} en Chambea Pe y me gustaría más información.`,
+      )}`
+    : null
   const sectionOffset = { xs: APP_BAR_HEIGHT.xs + 16, sm: APP_BAR_HEIGHT.sm + 16 }
   const trail: BreadcrumbItem[] = [
     ...(cameFromMine ? [{ label: 'Mi emprendimiento', to: '/mi-emprendimiento' }] : []),
@@ -248,7 +293,7 @@ export function EntrepreneurshipDetailPage() {
             >
               <Paper elevation={0} sx={{ border: 1, borderColor: 'divider', p: { xs: 2.5, sm: 3 } }}>
                 <Typography component="h2" id="ubicacion-heading" variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
-                  Dónde encontrarlos
+                  Ubicación y contacto
                 </Typography>
                 <Typography variant="h5" sx={{ fontWeight: 800, lineHeight: 1.2 }}>
                   {location.district}
@@ -270,6 +315,26 @@ export function EntrepreneurshipDetailPage() {
                 >
                   Ver zona en el mapa
                 </Button>
+                {whatsappUrl && (
+                  <Button
+                    component="a"
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Contáctanos por WhatsApp"
+                    variant="contained"
+                    startIcon={<WhatsAppIcon />}
+                    fullWidth
+                    sx={{
+                      mt: 1.5,
+                      bgcolor: WHATSAPP_GREEN,
+                      color: WHATSAPP_INK,
+                      '&:hover': { bgcolor: WHATSAPP_GREEN_HOVER },
+                    }}
+                  >
+                    Contáctanos
+                  </Button>
+                )}
                 {socials.length > 0 && (
                   <>
                     <Divider sx={{ my: 3 }} />
@@ -287,7 +352,14 @@ export function EntrepreneurshipDetailPage() {
                           variant="outlined"
                           color="inherit"
                           startIcon={social.icon}
-                          sx={{ justifyContent: 'flex-start' }}
+                          sx={[
+                            {
+                              justifyContent: 'flex-start',
+                              transition: 'color 180ms ease, border-color 180ms ease',
+                              '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                            },
+                            ...(Array.isArray(social.hoverSx) ? social.hoverSx : social.hoverSx ? [social.hoverSx] : []),
+                          ]}
                         >
                           {social.label}
                         </Button>
