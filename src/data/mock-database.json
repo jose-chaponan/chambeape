@@ -1,0 +1,194 @@
+{
+  "users": [
+    {
+      "id": "usr-yuliana-rios-del-aguila",
+      "email": "yulianariosdelaguila@gmail.com",
+      "password": "1234567890",
+      "firstNames": "Yuliana Kelly",
+      "lastNames": "Ríos del Aguila"
+    },
+    {
+      "id": "usr-administrador-sistema",
+      "email": "admin@gmail.com",
+      "password": "1234567890",
+      "firstNames": "Administrador",
+      "lastNames": "Del sistema"
+    }
+  ],
+  "categories": [
+    { "id": "food", "name": "Alimentos y bebidas", "icon": "food" },
+    { "id": "crafts", "name": "Artesanía", "icon": "crafts" },
+    { "id": "fashion", "name": "Moda y accesorios", "icon": "fashion" },
+    { "id": "beauty", "name": "Belleza y cuidado", "icon": "beauty" },
+    { "id": "home", "name": "Hogar y decoración", "icon": "home" },
+    { "id": "construction", "name": "Construcción y ferretería", "icon": "construction" }
+  ],
+  "entrepreneurships": [
+    {
+      "id": "ent-sabor-andino",
+      "ownerUserId": "usr-administrador-sistema",
+      "ownerDni": "00000000",
+      "businessName": "Sabor Andino",
+      "shortDescription": "Sabores tradicionales peruanos elaborados con ingredientes locales.",
+      "longDescription": "Sabor Andino prepara recetas tradicionales del Perú con ingredientes locales y mucho cariño. Una propuesta de cocina casera que celebra la diversidad de sabores de nuestras regiones.",
+      "categoryId": "food",
+      "rating": 4.8,
+      "coverImageUrl": "/emprendimientos/sabor-andino/manager.jpg",
+      "socialLinks": {},
+      "photoUrls": [
+        "/emprendimientos/sabor-andino/entrada.jpg",
+        "/emprendimientos/sabor-andino/restaurante.jpg",
+        "/emprendimientos/sabor-andino/sopa.jpg"
+      ]
+    },
+    {
+      "id": "ent-manitos-del-sur",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Manitos del Sur",
+      "shortDescription": "Piezas artesanales hechas a mano que celebran nuestras tradiciones.",
+      "longDescription": "Manitos del Sur crea piezas artesanales a mano, inspiradas en las tradiciones y técnicas de distintas comunidades del Perú. Cada producto refleja el talento local y el cuidado puesto en cada detalle.",
+      "categoryId": "crafts",
+      "rating": 4.9,
+      "coverImageUrl": "/emprendimientos/manitos-del-sur/manager.jpg",
+      "socialLinks": {},
+      "photoUrls": [
+        "/emprendimientos/manitos-del-sur/artesania.jpeg",
+        "/emprendimientos/manitos-del-sur/jarrones.jpg",
+        "/emprendimientos/manitos-del-sur/manager-2.jpg",
+        "/emprendimientos/manitos-del-sur/retablo-arequipa.webp"
+      ]
+    },
+    {
+      "id": "ent-hilo-nativo",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Hilo Nativo",
+      "shortDescription": "Prendas y accesorios contemporáneos con identidad peruana.",
+      "longDescription": "Hilo Nativo diseña prendas y accesorios que combinan una mirada contemporánea con materiales, colores e inspiración de origen peruano. Su propuesta busca vestir con identidad y valorar el trabajo local.",
+      "categoryId": "fashion",
+      "rating": 4.7,
+      "coverImageUrl": "/emprendimientos/hilo-nativo/manager.jpg",
+      "socialLinks": {},
+      "photoUrls": [
+        "/emprendimientos/hilo-nativo/pendiente.jpg",
+        "/emprendimientos/hilo-nativo/poncho.jpg",
+        "/emprendimientos/hilo-nativo/tejido.jpg"
+      ]
+    },
+    {
+      "id": "ent-botanica-viva",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Botánica Viva",
+      "shortDescription": "Cuidado personal inspirado en plantas e ingredientes naturales.",
+      "longDescription": "Botánica Viva ofrece productos de cuidado personal inspirados en las plantas y los ingredientes naturales. Una propuesta dedicada al bienestar cotidiano y al valor de los recursos de nuestra biodiversidad.",
+      "categoryId": "beauty",
+      "rating": 4.6,
+      "socialLinks": {},
+      "photoUrls": []
+    },
+    {
+      "id": "ent-casa-quinua",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Casa Quinua",
+      "shortDescription": "Objetos y detalles para el hogar con encanto artesanal.",
+      "longDescription": "Casa Quinua reúne objetos y detalles decorativos para el hogar, elaborados con inspiración artesanal peruana. Sus piezas aportan calidez a los espacios y destacan el trabajo de manos creadoras locales.",
+      "categoryId": "home",
+      "rating": 4.8,
+      "coverImageUrl": "/emprendimientos/casa-quinua/manager.jpg",
+      "socialLinks": {},
+      "photoUrls": [
+        "/emprendimientos/casa-quinua/cojines.png",
+        "/emprendimientos/casa-quinua/platos.jpg"
+      ]
+    },
+    {
+      "id": "ent-sastreria-rios",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Sastrería Ríos",
+      "shortDescription": "Sastrería a medida con acabados cuidados para cada ocasión.",
+      "longDescription": "Sastrería Ríos confecciona ternos y prendas a medida, cuidando cada etapa del proceso: toma de medidas, pruebas, selección de telas y acabados. Una propuesta de sastrería personalizada para vestir con elegancia y comodidad.",
+      "categoryId": "fashion",
+      "rating": 4.9,
+      "coverImageUrl": "/emprendimientos/sastreria-rios/sastre.jpg",
+      "socialLinks": {},
+      "photoUrls": [
+        "/emprendimientos/sastreria-rios/herramientas-sastre.jpg",
+        "/emprendimientos/sastreria-rios/maniki.jpg",
+        "/emprendimientos/sastreria-rios/medidas.jpg",
+        "/emprendimientos/sastreria-rios/prueba-de-traje.jpg",
+        "/emprendimientos/sastreria-rios/puntada.jpg",
+        "/emprendimientos/sastreria-rios/terno.jpg",
+        "/emprendimientos/sastreria-rios/tijeras.jpg"
+      ]
+    },
+    {
+      "id": "ent-luz-de-valle",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Luz de Valle",
+      "shortDescription": "Velas aromáticas hechas a mano para crear ambientes acogedores.",
+      "longDescription": "Luz de Valle elabora velas aromáticas de manera artesanal, combinando fragancias cálidas y diseños para acompañar momentos de descanso. Cada pieza está pensada para aportar un toque acogedor a cualquier espacio.",
+      "categoryId": "home",
+      "rating": 4.8,
+      "coverImageUrl": "/emprendimientos/luz-de-valle/manager.jpg",
+      "socialLinks": {},
+      "photoUrls": [
+        "/emprendimientos/luz-de-valle/velas-aromaticas.avif",
+        "/emprendimientos/luz-de-valle/velas-collection.jpg",
+        "/emprendimientos/luz-de-valle/velas.jpg"
+      ]
+    },
+    {
+      "id": "ent-ferreteria-el-constructor",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Ferretería El Constructor",
+      "shortDescription": "Materiales, herramientas y artículos para proyectos de construcción.",
+      "longDescription": "Ferretería El Constructor ofrece materiales, herramientas y artículos básicos para reparaciones, remodelaciones y proyectos de construcción. Una alternativa local para encontrar lo necesario y recibir orientación cercana para cada trabajo.",
+      "categoryId": "construction",
+      "rating": 4.6,
+      "socialLinks": {},
+      "photoUrls": []
+    },
+    {
+      "id": "ent-emolientes-don-pepe",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Emolientes Don Pepe",
+      "shortDescription": "Emolientes calientes y bebidas tradicionales preparados al momento.",
+      "longDescription": "Emolientes Don Pepe prepara bebidas tradicionales peruanas con hierbas, frutas y sabores reconfortantes. Una propuesta de barrio para disfrutar emoliente caliente y otras infusiones, servidas al momento y con el sabor de siempre.",
+      "categoryId": "food",
+      "rating": 4.9,
+      "socialLinks": {},
+      "photoUrls": []
+    },
+    {
+      "id": "ent-panaderia-buen-horno",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Buen Horno",
+      "shortDescription": "Panes y productos horneados frescos para compartir cada día.",
+      "longDescription": "Buen Horno prepara panes y productos horneados en pequeñas tandas para ofrecerlos frescos durante el día. Su propuesta combina recetas conocidas, ingredientes seleccionados y el cuidado de una panadería de barrio.",
+      "categoryId": "food",
+      "rating": 4.7,
+      "socialLinks": {},
+      "photoUrls": []
+    },
+    {
+      "id": "ent-verde-casa",
+      "ownerUserId": "usr-yuliana-rios-del-aguila",
+      "ownerDni": "00000000",
+      "businessName": "Verde Casa",
+      "shortDescription": "Plantas y macetas para llenar de vida los espacios del hogar.",
+      "longDescription": "Verde Casa ofrece plantas de interior, macetas y accesorios para quienes quieren incorporar un toque natural a sus espacios. También comparte recomendaciones sencillas para elegir y cuidar plantas según cada ambiente.",
+      "categoryId": "home",
+      "rating": 4.8,
+      "socialLinks": {},
+      "photoUrls": []
+    }
+  ]
+}
