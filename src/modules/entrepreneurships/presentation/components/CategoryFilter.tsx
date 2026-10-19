@@ -10,7 +10,7 @@ import {
   Select,
   Stack,
 } from '@mui/material'
-import { APP_BAR_HEIGHT } from '../../../../app/theme/appTheme'
+import { APP_BAR_HEIGHT, PAGE_GUTTER } from '../../../../app/theme/appTheme'
 import type { EntrepreneurshipCategory } from '../../domain/EntrepreneurshipCategory'
 import { categoryIcons } from './categoryIcons'
 
@@ -38,8 +38,8 @@ export function CategoryFilter({ categories, selectedIds, onChange }: Readonly<C
         position: { xs: 'sticky', md: 'static' },
         top: { xs: APP_BAR_HEIGHT.xs, sm: APP_BAR_HEIGHT.sm, md: 'auto' },
         zIndex: (theme) => theme.zIndex.appBar - 1,
-        mx: { xs: -2, sm: -3, md: 0 },
-        px: { xs: 2, sm: 3, md: 0 },
+        mx: { xs: -PAGE_GUTTER, md: 0 },
+        px: { xs: PAGE_GUTTER, md: 0 },
         py: { xs: 1.5, md: 0 },
         mb: 3,
         bgcolor: { xs: 'rgba(255, 249, 252, 0.96)', md: 'transparent' },

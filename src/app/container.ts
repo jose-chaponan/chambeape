@@ -1,5 +1,6 @@
 import { AuthenticateUser } from '../modules/authentication/application/authenticateUser'
 import { GetAllEntrepreneurships } from '../modules/entrepreneurships/application/GetAllEntrepreneurships'
+import { GetEntrepreneurshipById } from '../modules/entrepreneurships/application/GetEntrepreneurshipById'
 import { GetEntrepreneurshipCategories } from '../modules/entrepreneurships/application/GetEntrepreneurshipCategories'
 import { GetEntrepreneurshipsForUser } from '../modules/entrepreneurships/application/GetEntrepreneurshipsForUser'
 import { JsonEntrepreneurshipCategoryRepository } from '../modules/entrepreneurships/infrastructure/JsonEntrepreneurshipCategoryRepository'
@@ -16,3 +17,4 @@ export const authenticateUser = new AuthenticateUser(userRepository)
 export const getAllEntrepreneurships = new GetAllEntrepreneurships(entrepreneurshipRepository)
 export const getEntrepreneurshipsForUser = new GetEntrepreneurshipsForUser(entrepreneurshipRepository)
 export const getEntrepreneurshipCategories = new GetEntrepreneurshipCategories(categoryRepository)
+export const getEntrepreneurshipById = new GetEntrepreneurshipById(entrepreneurshipRepository)

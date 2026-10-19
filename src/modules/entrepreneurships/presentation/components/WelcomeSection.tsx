@@ -1,11 +1,9 @@
 import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded'
 import { Box, Chip, Paper, Stack, Typography } from '@mui/material'
-import { APP_BAR_HEIGHT } from '../../../../app/theme/appTheme'
-import type { SessionUser } from '../../../users/domain/User'
-import { UserGreeting } from '../../../users/presentation/UserGreeting'
+import type { ResolvedUser } from '../../../users/domain/UserProfile'
 
 interface WelcomeSectionProps {
-  user: SessionUser
+  user: ResolvedUser
   ownedCount: number
 }
 
@@ -39,24 +37,6 @@ export function WelcomeSection({ user, ownedCount }: Readonly<WelcomeSectionProp
             Estás a un paso de mostrar lo que haces al Perú. Este será tu espacio para darle visibilidad a tu emprendimiento.
           </Typography>
         </Box>
-        <Paper
-          id="mi-perfil"
-          elevation={0}
-          sx={{
-            border: 1,
-            borderColor: 'divider',
-            borderLeft: '5px solid',
-            borderLeftColor: 'secondary.main',
-            p: { xs: 2.5, sm: 3 },
-            scrollMarginTop: { xs: APP_BAR_HEIGHT.xs + 16, sm: APP_BAR_HEIGHT.sm + 16 },
-          }}
-        >
-          <Typography gutterBottom sx={{ fontWeight: 800 }}>Tu cuenta está lista</Typography>
-          <UserGreeting user={user} />
-          <Typography color="text.secondary" variant="body2" sx={{ mt: 1, overflowWrap: 'anywhere' }}>
-            {user.email}
-          </Typography>
-        </Paper>
       </Stack>
 
       <Paper

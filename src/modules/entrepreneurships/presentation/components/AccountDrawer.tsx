@@ -2,6 +2,7 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded'
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded'
+import { Link as RouterLink } from 'react-router-dom'
 import {
   Avatar,
   Box,
@@ -15,12 +16,12 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import type { SessionUser } from '../../../users/domain/User'
+import type { ResolvedUser } from '../../../users/domain/UserProfile'
 import { getUserDisplayName } from '../../../users/application/getUserDisplayName'
 
 interface AccountDrawerProps {
   open: boolean
-  user: SessionUser
+  user: ResolvedUser
   onClose: () => void
   onLogout: () => void
 }
@@ -40,7 +41,7 @@ export function AccountDrawer({ open, user, onClose, onLogout }: Readonly<Accoun
         </IconButton>
       </Stack>
       <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', px: 1, py: 2 }}>
-        <Avatar sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+        <Avatar src={user.avatarUrl || undefined} sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
           {user.firstNames.charAt(0)}
         </Avatar>
         <Box sx={{ minWidth: 0 }}>
@@ -50,7 +51,7 @@ export function AccountDrawer({ open, user, onClose, onLogout }: Readonly<Accoun
       </Stack>
       <Divider />
       <List aria-label="Opciones de cuenta" sx={{ py: 1 }}>
-        <ListItemButton component="a" href="#mi-perfil" onClick={onClose}>
+        <ListItemButton component={RouterLink} to="/perfil" onClick={onClose}>
           <ListItemIcon><AccountCircleRoundedIcon /></ListItemIcon>
           <ListItemText primary="Mi perfil" />
         </ListItemButton>

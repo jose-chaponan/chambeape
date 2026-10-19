@@ -3,6 +3,9 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 /** Alto de la barra superior por breakpoint; lo usan el AppBar y los elementos sticky que cuelgan de ella. */
 export const APP_BAR_HEIGHT = { xs: 64, sm: 72 } as const
 
+/** Margen lateral de las páginas (en unidades de spacing): 28 px en móvil (24 px desde sm). */
+export const PAGE_GUTTER = 3.5
+
 const baseTheme = createTheme({
   palette: {
     mode: 'light',
@@ -21,6 +24,16 @@ const baseTheme = createTheme({
   shape: { borderRadius: 12 },
   components: {
     MuiButton: { styleOverrides: { root: { borderRadius: 8, minHeight: 46 } } },
+    // Redondeo sutil en todos los campos (TextField, Select, Autocomplete).
+    MuiOutlinedInput: { styleOverrides: { root: { borderRadius: 4 } } },
+    MuiContainer: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          // MUI deja 16 px en móvil; el contenido quedaba muy pegado a los bordes.
+          [theme.breakpoints.down('sm')]: { paddingInline: theme.spacing(PAGE_GUTTER) },
+        }),
+      },
+    },
     MuiPaper: { styleOverrides: { root: { backgroundImage: 'none' } } },
   },
 })

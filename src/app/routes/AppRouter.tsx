@@ -1,6 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from '../../modules/authentication/presentation/LoginPage'
+import { EntrepreneurshipDetailPage } from '../../modules/entrepreneurships/presentation/EntrepreneurshipDetailPage'
 import { HomePage } from '../../modules/entrepreneurships/presentation/HomePage'
+import { MyEntrepreneurshipsPage } from '../../modules/entrepreneurships/presentation/MyEntrepreneurshipsPage'
+import { ProfilePage } from '../../modules/users/presentation/ProfilePage'
 import { RedirectAuthenticated } from './RedirectAuthenticated'
 import { RequireAuthentication } from './RequireAuthentication'
 
@@ -12,6 +15,9 @@ export function AppRoutes() {
       </Route>
       <Route element={<RequireAuthentication />}>
         <Route path="/home" element={<HomePage />} />
+        <Route path="/mi-emprendimiento" element={<MyEntrepreneurshipsPage />} />
+        <Route path="/perfil" element={<ProfilePage />} />
+        <Route path="/emprendimientos/:entrepreneurshipId" element={<EntrepreneurshipDetailPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>

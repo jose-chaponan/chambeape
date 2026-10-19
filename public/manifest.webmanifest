@@ -1,0 +1,16 @@
+{
+  "name": "Chambea Pe",
+  "short_name": "Chambea Pe",
+  "description": "Chambea Pe, la vitrina digital de los emprendimientos peruanos.",
+  "lang": "es-PE",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fff9fc",
+  "theme_color": "#f60563",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

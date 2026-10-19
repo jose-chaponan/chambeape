@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 import { AppProviders } from '../AppProviders'
@@ -68,14 +68,14 @@ describe('application routes', () => {
     expect(screen.getByText('Próximamente')).toBeInTheDocument()
   })
 
-  it('lists entrepreneurships with their categories, image placeholders, and category filters', () => {
+  it('lists entrepreneurships with their categories, cover images, and category filters', () => {
     useAuthStore.getState().startSession(user)
     renderRoute('/home')
 
     expect(screen.getByRole('heading', { name: 'Emprendimientos peruanos' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Aún no tienes emprendimientos publicados' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Sabor Andino' })).toBeInTheDocument()
-    expect(screen.getAllByText('Imagen próximamente')).toHaveLength(5)
+    expect(screen.queryByText('Imagen próximamente')).not.toBeInTheDocument()
     expect(screen.getAllByLabelText('Calificación: 4.8 de 5')).toHaveLength(4)
 
     fireEvent.click(screen.getByRole('button', { name: 'Artesanía' }))
@@ -89,7 +89,7 @@ describe('application routes', () => {
     renderRoute('/home')
 
     expect(screen.getByRole('heading', { name: 'Tienes 1 emprendimiento publicado' })).toBeInTheDocument()
-    expect(screen.getAllByText('Imagen próximamente')).toHaveLength(5)
+    expect(screen.queryByText('Imagen próximamente')).not.toBeInTheDocument()
   })
 
   it('allows selecting multiple categories in the mobile filter menu', () => {
@@ -106,12 +106,176 @@ describe('application routes', () => {
     expect(screen.queryByRole('heading', { name: 'Hilo Nativo' })).not.toBeInTheDocument()
   })
 
+  it('searches the catalog by product and by district', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/home')
+
+    expect(screen.getByText(/Pachamanca · Cuy frito/)).toBeInTheDocument()
+
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Buscar producto o servicio' }), {
+      target: { value: 'pachamanca' },
+    })
+    expect(screen.getByRole('heading', { name: 'Sabor Andino' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Hilo Nativo' })).not.toBeInTheDocument()
+
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Buscar producto o servicio' }), {
+      target: { value: '' },
+    })
+    fireEvent.mouseDown(screen.getByRole('combobox', { name: 'Distrito' }))
+    fireEvent.click(screen.getByRole('option', { name: 'Breña' }))
+
+    expect(screen.getByRole('heading', { name: 'Sastrería Ríos' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Sabor Andino' })).not.toBeInTheDocument()
+  })
+
+  it('links each catalog card to its detail page', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/home')
+
+    expect(screen.getByRole('link', { name: 'Sabor Andino' })).toHaveAttribute(
+      'href',
+      '/emprendimientos/ent-sabor-andino',
+    )
+    expect(screen.queryByText('Tu cuenta está lista')).not.toBeInTheDocument()
+  })
+
+  it('shows the entrepreneurship detail with products, location and gallery', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/emprendimientos/ent-sabor-andino')
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Sabor Andino' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Lo que ofrecen' })).toBeInTheDocument()
+    expect(screen.getByText('Pachamanca')).toBeInTheDocument()
+    expect(screen.getByText('Cuy frito')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Dónde encontrarlos' })).toBeInTheDocument()
+    expect(screen.getAllByText('Jesús María', { exact: false }).length).toBeGreaterThan(0)
+    expect(screen.getByRole('link', { name: /ver zona en el mapa/i })).toHaveAttribute(
+      'href',
+      expect.stringContaining('google.com/maps'),
+    )
+    expect(screen.getAllByRole('img', { name: 'Portada de Sabor Andino' }).length).toBeGreaterThan(0)
+    expect(screen.getByRole('link', { name: 'Inicio' })).toHaveAttribute('href', '/home')
+  })
+
+  it('opens the photo viewer from the detail gallery', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/emprendimientos/ent-sabor-andino')
+
+    fireEvent.click(screen.getAllByRole('button', { name: /ver foto 2 de 4/i })[0])
+    expect(screen.getByRole('button', { name: 'Foto siguiente' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar galería' }))
+  })
+
+  it('shows the mobile bottom navigation with Home, Mi emprendimiento and Perfil', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/home')
+
+    const nav = screen.getByRole('navigation', { name: 'Navegación principal' })
+    expect(within(nav).getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/home')
+    expect(within(nav).getByRole('link', { name: 'Mi emprendimiento' })).toHaveAttribute('href', '/mi-emprendimiento')
+    expect(within(nav).getByRole('link', { name: 'Perfil' })).toHaveAttribute('href', '/perfil')
+    expect(within(nav).getByRole('link', { name: 'Home' })).toHaveAttribute('aria-current', 'page')
+  })
+
+  it('lists the user entrepreneurships under Mi emprendimiento', () => {
+    useAuthStore.getState().startSession(admin)
+    renderRoute('/mi-emprendimiento')
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Mi emprendimiento' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Sabor Andino' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Hilo Nativo' })).not.toBeInTheDocument()
+  })
+
+  it('shows an empty state under Mi emprendimiento when the user owns none', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/mi-emprendimiento')
+
+    expect(screen.getByRole('heading', { name: 'Aún no tienes emprendimientos publicados' })).toBeInTheDocument()
+  })
+
+  it('shows the profile page with the session user', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/perfil')
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Perfil' })).toBeInTheDocument()
+    expect(screen.getByText('route@example.com')).toBeInTheDocument()
+  })
+
+  it('marks only verified entrepreneurships with the verified badge in the catalog', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/home')
+
+    const verifiedCount = localDatabase.entrepreneurships.filter((entrepreneurship) => entrepreneurship.verified).length
+    expect(verifiedCount).toBeGreaterThan(0)
+    expect(verifiedCount).toBeLessThan(localDatabase.entrepreneurships.length)
+    expect(screen.getAllByRole('img', { name: 'Emprendimiento verificado' })).toHaveLength(verifiedCount)
+  })
+
+  it('shows the verified badge once on the detail of a verified entrepreneurship only', () => {
+    useAuthStore.getState().startSession(user)
+    const verified = renderRoute('/emprendimientos/ent-sabor-andino')
+    expect(screen.getByRole('heading', { level: 1, name: 'Sabor Andino' })).toBeInTheDocument()
+    // Una sola vez para el propio emprendimiento (los relacionados verificados traen la suya).
+    const header = screen.getByRole('heading', { level: 1 }).parentElement as HTMLElement
+    expect(within(header).getAllByRole('img', { name: 'Emprendimiento verificado' })).toHaveLength(1)
+    expect(screen.queryByText('Emprendimiento verificado', { selector: '.MuiChip-label' })).not.toBeInTheDocument()
+    verified.unmount()
+
+    renderRoute('/emprendimientos/ent-ferreteria-el-constructor')
+    const plainHeader = screen.getByRole('heading', { level: 1 }).parentElement as HTMLElement
+    expect(within(plainHeader).queryByRole('img', { name: 'Emprendimiento verificado' })).not.toBeInTheDocument()
+  })
+
+  it('shows breadcrumbs on every inner screen', () => {
+    useAuthStore.getState().startSession(admin)
+
+    const crumbs = () => screen.getByRole('navigation', { name: 'Ruta de navegación' })
+
+    const detail = renderRoute('/emprendimientos/ent-sabor-andino')
+    expect(within(crumbs()).getByRole('link', { name: 'Inicio' })).toHaveAttribute('href', '/home')
+    expect(within(crumbs()).getByText('Sabor Andino')).toHaveAttribute('aria-current', 'page')
+    detail.unmount()
+
+    const mine = renderRoute('/mi-emprendimiento')
+    expect(within(crumbs()).getByText('Mi emprendimiento')).toHaveAttribute('aria-current', 'page')
+    mine.unmount()
+
+    renderRoute('/perfil')
+    expect(within(crumbs()).getByText('Perfil')).toHaveAttribute('aria-current', 'page')
+  })
+
+  it('keeps Mi emprendimiento in the breadcrumbs when opening one of your entrepreneurships from there', () => {
+    useAuthStore.getState().startSession(admin)
+    renderRoute('/mi-emprendimiento')
+
+    fireEvent.click(screen.getByRole('link', { name: 'Sabor Andino' }))
+
+    const crumbs = screen.getByRole('navigation', { name: 'Ruta de navegación' })
+    expect(within(crumbs).getByRole('link', { name: 'Mi emprendimiento' })).toHaveAttribute(
+      'href',
+      '/mi-emprendimiento',
+    )
+    expect(within(crumbs).getByText('Sabor Andino')).toHaveAttribute('aria-current', 'page')
+  })
+
+  it('shows a friendly message when the entrepreneurship does not exist', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/emprendimientos/no-existe')
+
+    expect(screen.getByRole('heading', { name: 'No encontramos este emprendimiento' })).toBeInTheDocument()
+  })
+
+  it('redirects an anonymous visitor from a detail page to Login', () => {
+    renderRoute('/emprendimientos/ent-sabor-andino')
+    expect(screen.getByRole('heading', { name: 'Inicia sesión' })).toBeInTheDocument()
+  })
+
   it('shows Sastrería Ríos cover and short description in the catalog', () => {
     useAuthStore.getState().startSession(user)
     renderRoute('/home')
 
     expect(screen.getByRole('img', { name: 'Portada de Sastrería Ríos' }))
-      .toHaveAttribute('src', '/emprendimientos/sastreria-rios/sastre.jpg')
+      .toHaveAttribute('src', '/emprendimientos/sastreria-rios/sastre.webp')
     expect(screen.getByText('Sastrería a medida con acabados cuidados para cada ocasión.'))
       .toBeInTheDocument()
   })
@@ -121,11 +285,11 @@ describe('application routes', () => {
       (entrepreneurship) => entrepreneurship.id === 'ent-sabor-andino',
     )
 
-    expect(saborAndino?.coverImageUrl).toBe('/emprendimientos/sabor-andino/manager.jpg')
+    expect(saborAndino?.coverImageUrl).toBe('/emprendimientos/sabor-andino/manager.webp')
     expect(saborAndino?.photoUrls).toEqual([
-      '/emprendimientos/sabor-andino/entrada.jpg',
-      '/emprendimientos/sabor-andino/restaurante.jpg',
-      '/emprendimientos/sabor-andino/sopa.jpg',
+      '/emprendimientos/sabor-andino/entrada.webp',
+      '/emprendimientos/sabor-andino/restaurante.webp',
+      '/emprendimientos/sabor-andino/sopa.webp',
     ])
   })
 
@@ -134,11 +298,11 @@ describe('application routes', () => {
       (entrepreneurship) => entrepreneurship.id === 'ent-hilo-nativo',
     )
 
-    expect(hiloNativo?.coverImageUrl).toBe('/emprendimientos/hilo-nativo/manager.jpg')
+    expect(hiloNativo?.coverImageUrl).toBe('/emprendimientos/hilo-nativo/manager.webp')
     expect(hiloNativo?.photoUrls).toEqual([
-      '/emprendimientos/hilo-nativo/pendiente.jpg',
-      '/emprendimientos/hilo-nativo/poncho.jpg',
-      '/emprendimientos/hilo-nativo/tejido.jpg',
+      '/emprendimientos/hilo-nativo/pendiente.webp',
+      '/emprendimientos/hilo-nativo/poncho.webp',
+      '/emprendimientos/hilo-nativo/tejido.webp',
     ])
   })
 
@@ -147,10 +311,10 @@ describe('application routes', () => {
       (entrepreneurship) => entrepreneurship.id === 'ent-casa-quinua',
     )
 
-    expect(casaQuinua?.coverImageUrl).toBe('/emprendimientos/casa-quinua/manager.jpg')
+    expect(casaQuinua?.coverImageUrl).toBe('/emprendimientos/casa-quinua/manager.webp')
     expect(casaQuinua?.photoUrls).toEqual([
-      '/emprendimientos/casa-quinua/cojines.png',
-      '/emprendimientos/casa-quinua/platos.jpg',
+      '/emprendimientos/casa-quinua/cojines.webp',
+      '/emprendimientos/casa-quinua/platos.webp',
     ])
   })
 
@@ -159,11 +323,11 @@ describe('application routes', () => {
       (entrepreneurship) => entrepreneurship.id === 'ent-manitos-del-sur',
     )
 
-    expect(manitosDelSur?.coverImageUrl).toBe('/emprendimientos/manitos-del-sur/manager.jpg')
+    expect(manitosDelSur?.coverImageUrl).toBe('/emprendimientos/manitos-del-sur/manager.webp')
     expect(manitosDelSur?.photoUrls).toEqual([
-      '/emprendimientos/manitos-del-sur/artesania.jpeg',
-      '/emprendimientos/manitos-del-sur/jarrones.jpg',
-      '/emprendimientos/manitos-del-sur/manager-2.jpg',
+      '/emprendimientos/manitos-del-sur/artesania.webp',
+      '/emprendimientos/manitos-del-sur/jarrones.webp',
+      '/emprendimientos/manitos-del-sur/manager-2.webp',
       '/emprendimientos/manitos-del-sur/retablo-arequipa.webp',
     ])
   })
@@ -173,11 +337,11 @@ describe('application routes', () => {
       (entrepreneurship) => entrepreneurship.id === 'ent-luz-de-valle',
     )
 
-    expect(luzDeValle?.coverImageUrl).toBe('/emprendimientos/luz-de-valle/manager.jpg')
+    expect(luzDeValle?.coverImageUrl).toBe('/emprendimientos/luz-de-valle/manager.webp')
     expect(luzDeValle?.photoUrls).toEqual([
-      '/emprendimientos/luz-de-valle/velas-aromaticas.avif',
-      '/emprendimientos/luz-de-valle/velas-collection.jpg',
-      '/emprendimientos/luz-de-valle/velas.jpg',
+      '/emprendimientos/luz-de-valle/velas-aromaticas.webp',
+      '/emprendimientos/luz-de-valle/velas-collection.webp',
+      '/emprendimientos/luz-de-valle/velas.webp',
     ])
   })
 

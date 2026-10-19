@@ -13,6 +13,14 @@ const SocialLinksSchema = z.object({
   website: z.url().optional(),
 });
 
+const LocationSchema = z.object({
+  district: z.string().min(1),
+  province: z.string().min(1),
+  department: z.string().min(1),
+});
+
+export type EntrepreneurshipLocation = z.infer<typeof LocationSchema>;
+
 export const EntrepreneurshipSchema = z.object({
   id: z.string().min(1),
   ownerUserId: z.string().min(1),
@@ -22,6 +30,11 @@ export const EntrepreneurshipSchema = z.object({
   longDescription: z.string().min(1).max(400),
   categoryId: z.string().min(1),
   rating: z.number().min(0).max(5),
+  // Insignia de "Emprendimiento verificado"; los que no la tienen simplemente la omiten.
+  verified: z.boolean().default(false),
+  // Productos o servicios que ofrece, a modo de ejemplo (la portal es solo vitrina).
+  products: z.array(z.string().min(1)).min(1),
+  location: LocationSchema,
   ruc: z
     .string()
     .regex(/^\d{11}$/)

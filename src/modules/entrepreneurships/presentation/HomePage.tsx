@@ -7,19 +7,23 @@ import {
   getEntrepreneurshipsForUser,
 } from '../../../app/container'
 import { APP_BAR_HEIGHT } from '../../../app/theme/appTheme'
-import { useAuthStore } from '../../authentication/state/useAuthStore'
-import { AccountDrawer } from './components/AccountDrawer'
+import { useCurrentUser } from '../../users/state/useCurrentUser'
+import {
+  getEntrepreneurshipDistricts,
+  searchEntrepreneurships,
+} from '../application/SearchEntrepreneurships'
+import { CatalogSearch } from './components/CatalogSearch'
 import { CategoryFilter } from './components/CategoryFilter'
 import { EntrepreneurshipCard } from './components/EntrepreneurshipCard'
-import { HomeHeader } from './components/HomeHeader'
+import { PageShell } from './components/PageShell'
 import { WelcomeSection } from './components/WelcomeSection'
 
 export function HomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<string[]>([])
-  const session = useAuthStore((state) => state.session)
-  const logout = useAuthStore((state) => state.logout)
-  const userId = session?.user.id
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedDistrict, setSelectedDistrict] = useState('')
+  const currentUser = useCurrentUser()
+  const userId = currentUser?.id
 
   const ownedCount = useMemo(
     () => (userId ? getEntrepreneurshipsForUser.execute(userId).length : 0),
@@ -30,32 +34,27 @@ export function HomePage() {
     () => new Map(categories.map((category) => [category.id, category])),
     [categories],
   )
+  const allEntrepreneurships = useMemo(
+    () => getAllEntrepreneurships.execute().filter((entrepreneurship) => categoryById.has(entrepreneurship.categoryId)),
+    [categoryById],
+  )
+  const districts = useMemo(() => getEntrepreneurshipDistricts(allEntrepreneurships), [allEntrepreneurships])
   const visibleEntrepreneurships = useMemo(
     () =>
-      getAllEntrepreneurships
-        .execute()
-        .filter(
-          (entrepreneurship) =>
-            categoryById.has(entrepreneurship.categoryId) &&
-            (selectedCategoryIds.length === 0 || selectedCategoryIds.includes(entrepreneurship.categoryId)),
-        ),
-    [categoryById, selectedCategoryIds],
+      searchEntrepreneurships(allEntrepreneurships, {
+        query: searchQuery,
+        district: selectedDistrict,
+        categoryIds: selectedCategoryIds,
+      }),
+    [allEntrepreneurships, searchQuery, selectedDistrict, selectedCategoryIds],
   )
 
-  if (!session) {
+  if (!currentUser) {
     return null
   }
 
   return (
-    <Box sx={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', bgcolor: 'background.default' }}>
-      <HomeHeader onOpenMenu={() => setIsMenuOpen(true)} />
-      <AccountDrawer
-        open={isMenuOpen}
-        user={session.user}
-        onClose={() => setIsMenuOpen(false)}
-        onLogout={logout}
-      />
-
+    <PageShell>
       <Box
         component="main"
         sx={{
@@ -66,7 +65,7 @@ export function HomePage() {
         }}
       >
         <Container maxWidth="lg">
-          <WelcomeSection user={session.user} ownedCount={ownedCount} />
+          <WelcomeSection user={currentUser} ownedCount={ownedCount} />
 
           <Box
             component="section"
@@ -98,6 +97,14 @@ export function HomePage() {
               </Typography>
             </Stack>
 
+            <CatalogSearch
+              query={searchQuery}
+              district={selectedDistrict}
+              districts={districts}
+              onQueryChange={setSearchQuery}
+              onDistrictChange={setSelectedDistrict}
+            />
+
             <CategoryFilter
               categories={categories}
               selectedIds={selectedCategoryIds}
@@ -109,19 +116,33 @@ export function HomePage() {
                 elevation={0}
                 sx={{ border: 1, borderStyle: 'dashed', borderColor: 'divider', p: 4, textAlign: 'center' }}
               >
-                <Typography color="text.secondary">Aún no hay emprendimientos en esta categoría.</Typography>
+                <Typography color="text.secondary">No encontramos emprendimientos con esa búsqueda. Prueba con otro producto, distrito o categoría.</Typography>
               </Paper>
             ) : (
               <Box
-                sx={{
+                sx={(theme) => ({
                   display: 'grid',
-                  gridTemplateColumns: {
-                    xs: 'repeat(2, minmax(0, 1fr))',
-                    md: 'repeat(3, minmax(0, 1fr))',
-                    lg: 'repeat(4, minmax(0, 1fr))',
-                  },
+                  // Móvil: filas de igual altura. Escritorio: bento con tarjetas destacadas de 2x2.
+                  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                  gridAutoRows: '1fr',
                   gap: { xs: 1.5, sm: 2.5 },
-                }}
+                  // Anchos explícitos: con 1fr, las tarjetas de 2 columnas desbalancean las pistas.
+                  // (Las media queries van solo aquí: mezclarlas con valores responsivos las pisa.)
+                  [theme.breakpoints.only('md')]: {
+                    gridTemplateColumns: 'repeat(3, calc((100% - 2 * 20px) / 3))',
+                    gridAutoRows: 'auto',
+                    gridAutoFlow: 'row dense',
+                    '& > :nth-of-type(8n + 1)': { gridColumn: 'span 2', gridRow: 'span 2' },
+                    '& > :nth-of-type(8n + 6)': { gridColumn: '2 / span 2', gridRow: 'span 2' },
+                  },
+                  [theme.breakpoints.up('lg')]: {
+                    gridTemplateColumns: 'repeat(4, calc((100% - 3 * 20px) / 4))',
+                    gridAutoRows: 'auto',
+                    gridAutoFlow: 'row dense',
+                    '& > :nth-of-type(10n + 1)': { gridColumn: 'span 2', gridRow: 'span 2' },
+                    '& > :nth-of-type(10n + 7)': { gridColumn: '3 / span 2', gridRow: 'span 2' },
+                  },
+                })}
               >
                 {visibleEntrepreneurships.map((entrepreneurship) => (
                   <EntrepreneurshipCard
@@ -139,6 +160,6 @@ export function HomePage() {
           </Typography>
         </Container>
       </Box>
-    </Box>
+    </PageShell>
   )
 }
