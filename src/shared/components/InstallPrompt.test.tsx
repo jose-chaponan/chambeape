@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { INSTALL_DISMISSED_KEY } from '../state/useInstallPrompt'
+import { INSTALL_DISMISSED_KEY, resetInstallPromptForTests } from '../state/useInstallPrompt'
 import { InstallPrompt } from './InstallPrompt'
 
 const IPHONE_UA =
@@ -25,6 +25,7 @@ function fireBeforeInstallPrompt(outcome: 'accepted' | 'dismissed' = 'accepted')
 describe('InstallPrompt', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    resetInstallPromptForTests()
     window.matchMedia = vi.fn().mockReturnValue({ matches: false }) as unknown as typeof window.matchMedia
   })
 
@@ -46,6 +47,17 @@ describe('InstallPrompt', () => {
     await waitFor(() =>
       expect(screen.queryByRole('region', { name: 'Instalar la aplicación' })).not.toBeInTheDocument(),
     )
+  })
+
+  it('keeps offering the native prompt after navigating to another screen', () => {
+    const first = render(<InstallPrompt />)
+    fireBeforeInstallPrompt()
+    expect(screen.getByRole('button', { name: 'Instalar' })).toBeInTheDocument()
+    first.unmount()
+
+    // Cada pantalla monta su propio aviso, pero el navegador no vuelve a lanzar el evento.
+    render(<InstallPrompt />)
+    expect(screen.getByRole('button', { name: 'Instalar' })).toBeInTheDocument()
   })
 
   it('remembers when the user declines the native prompt', async () => {
