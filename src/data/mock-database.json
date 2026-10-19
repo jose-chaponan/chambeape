@@ -21,7 +21,8 @@
     { "id": "fashion", "name": "Moda y accesorios", "icon": "fashion" },
     { "id": "beauty", "name": "Belleza y cuidado", "icon": "beauty" },
     { "id": "home", "name": "Hogar y decoración", "icon": "home" },
-    { "id": "construction", "name": "Construcción y ferretería", "icon": "construction" }
+    { "id": "construction", "name": "Construcción y ferretería", "icon": "construction" },
+    { "id": "imports", "name": "Importaciones y comercio", "icon": "imports" }
   ],
   "entrepreneurships": [
     {
@@ -369,6 +370,1073 @@
         "/emprendimientos/verde-casa/galeria-2.webp",
         "/emprendimientos/verde-casa/galeria-3.webp"
       ]
-    }
+    },
+      {
+        "id": "ent-tecnoimport-lima",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "TecnoImport Lima",
+        "shortDescription": "Accesorios y electrónica importados directo, con garantía y precio de mayorista.",
+        "longDescription": "TecnoImport Lima trae de Asia y Estados Unidos accesorios para celulares, audio y cómputo. Atienden a tiendas pequeñas y a clientes finales, con stock permanente, garantía por escrito y envíos a todo Lima el mismo día.",
+        "categoryId": "imports",
+        "rating": 4.7,
+        "verified": true,
+        "products": [
+          "Fundas y protectores",
+          "Cargadores y cables",
+          "Audífonos y parlantes",
+          "Memorias y discos externos",
+          "Cámaras de seguridad",
+          "Soportes y trípodes"
+        ],
+        "location": {
+          "district": "Lima",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/tecnoimport-lima/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.tecnoimportlima",
+          "instagram": "https://www.instagram.com/chambeape.tecnoimportlima",
+          "tiktok": "https://www.tiktok.com/@chambeape.tecnoimportlima",
+          "whatsapp": "900000012"
+        },
+        "photoUrls": [
+          "/emprendimientos/tecnoimport-lima/galeria-1.webp",
+          "/emprendimientos/tecnoimport-lima/galeria-2.webp",
+          "/emprendimientos/tecnoimport-lima/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-mundo-magico-juguetes",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Mundo Mágico Juguetes",
+        "shortDescription": "Juguetes importados para todas las edades, al por mayor y por unidad.",
+        "longDescription": "Importamos juguetes educativos, de construcción y de colección que cumplen las normas de seguridad. Vendemos al por mayor para bazares y por unidad para familias que buscan regalos distintos todo el año.",
+        "categoryId": "imports",
+        "rating": 4.4,
+        "products": [
+          "Juguetes educativos",
+          "Bloques de construcción",
+          "Muñecas y peluches",
+          "Carritos y pistas",
+          "Juegos de mesa",
+          "Disfraces"
+        ],
+        "location": {
+          "district": "La Victoria",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/mundo-magico-juguetes/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.mundomagicojuguetes",
+          "instagram": "https://www.instagram.com/chambeape.mundomagicojuguetes",
+          "tiktok": "https://www.tiktok.com/@chambeape.mundomagicojuguetes",
+          "whatsapp": "900000013"
+        },
+        "photoUrls": [
+          "/emprendimientos/mundo-magico-juguetes/galeria-1.webp",
+          "/emprendimientos/mundo-magico-juguetes/galeria-2.webp",
+          "/emprendimientos/mundo-magico-juguetes/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-autopartes-pacifico",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "AutoPartes Pacífico",
+        "shortDescription": "Repuestos importados para autos y camionetas con garantía de fábrica.",
+        "longDescription": "Importadora de repuestos para las marcas más comunes en Lima: frenos, suspensión, filtros y baterías. Asesoramos por código de pieza y entregamos a talleres y mecánicos independientes con crédito a 15 días.",
+        "categoryId": "imports",
+        "rating": 4.6,
+        "verified": true,
+        "products": [
+          "Pastillas y discos de freno",
+          "Filtros de aceite y aire",
+          "Amortiguadores",
+          "Baterías",
+          "Bujías y cables",
+          "Faros y luces"
+        ],
+        "location": {
+          "district": "Ate",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/autopartes-pacifico/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.autopartespacifico",
+          "instagram": "https://www.instagram.com/chambeape.autopartespacifico",
+          "tiktok": "https://www.tiktok.com/@chambeape.autopartespacifico",
+          "whatsapp": "900000014"
+        },
+        "photoUrls": [
+          "/emprendimientos/autopartes-pacifico/galeria-1.webp",
+          "/emprendimientos/autopartes-pacifico/galeria-2.webp",
+          "/emprendimientos/autopartes-pacifico/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-andes-hogar-importadora",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Andes Hogar Importadora",
+        "shortDescription": "Electrodomésticos pequeños y menaje importado para renovar tu cocina.",
+        "longDescription": "Traemos licuadoras, freidoras de aire, ollas y utensilios de cocina directo de fábrica. Ofrecemos packs para emprendedores gastronómicos y garantía de 12 meses en los equipos eléctricos.",
+        "categoryId": "imports",
+        "rating": 4.5,
+        "verified": true,
+        "products": [
+          "Licuadoras y batidoras",
+          "Freidoras de aire",
+          "Ollas y sartenes",
+          "Juegos de cubiertos",
+          "Termos y botellas",
+          "Organizadores de cocina"
+        ],
+        "location": {
+          "district": "San Martín de Porres",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/andes-hogar-importadora/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.andeshogarimportadora",
+          "instagram": "https://www.instagram.com/chambeape.andeshogarimportadora",
+          "tiktok": "https://www.tiktok.com/@chambeape.andeshogarimportadora",
+          "whatsapp": "900000015"
+        },
+        "photoUrls": [
+          "/emprendimientos/andes-hogar-importadora/galeria-1.webp",
+          "/emprendimientos/andes-hogar-importadora/galeria-2.webp",
+          "/emprendimientos/andes-hogar-importadora/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-textiles-del-mundo",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Textiles del Mundo",
+        "shortDescription": "Telas importadas por rollo y por metro para confeccionistas y diseñadores.",
+        "longDescription": "Importamos algodón, popelina, lycra y drill desde Asia y Brasil. Vendemos por rollo a talleres de confección y por metro a diseñadores independientes, con muestrarios de color y asesoría para elegir el tejido.",
+        "categoryId": "imports",
+        "rating": 4.6,
+        "verified": true,
+        "products": [
+          "Algodón y popelina",
+          "Lycra deportiva",
+          "Drill y gabardina",
+          "Telas estampadas",
+          "Forros y entretelas",
+          "Botones e hilos"
+        ],
+        "location": {
+          "district": "La Victoria",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/textiles-del-mundo/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.textilesdelmundo",
+          "instagram": "https://www.instagram.com/chambeape.textilesdelmundo",
+          "tiktok": "https://www.tiktok.com/@chambeape.textilesdelmundo",
+          "whatsapp": "900000016"
+        },
+        "photoUrls": [
+          "/emprendimientos/textiles-del-mundo/galeria-1.webp",
+          "/emprendimientos/textiles-del-mundo/galeria-2.webp",
+          "/emprendimientos/textiles-del-mundo/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-perfumeria-oriente",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Perfumería Oriente",
+        "shortDescription": "Perfumes y cosmética importada de Emiratos, Francia y Corea.",
+        "longDescription": "Selección de fragancias árabes y francesas, cuidado de la piel coreano y maquillaje de marcas internacionales. Todos los productos llegan con registro sanitario y se pueden probar en tienda antes de comprar.",
+        "categoryId": "imports",
+        "rating": 4.8,
+        "verified": true,
+        "products": [
+          "Perfumes árabes",
+          "Fragancias de diseñador",
+          "Cuidado facial coreano",
+          "Maquillaje importado",
+          "Sets de regalo",
+          "Aceites y bakhoor"
+        ],
+        "location": {
+          "district": "San Borja",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/perfumeria-oriente/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.perfumeriaoriente",
+          "instagram": "https://www.instagram.com/chambeape.perfumeriaoriente",
+          "tiktok": "https://www.tiktok.com/@chambeape.perfumeriaoriente",
+          "whatsapp": "900000017"
+        },
+        "photoUrls": [
+          "/emprendimientos/perfumeria-oriente/galeria-1.webp",
+          "/emprendimientos/perfumeria-oriente/galeria-2.webp",
+          "/emprendimientos/perfumeria-oriente/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-bazar-global-express",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Bazar Global Express",
+        "shortDescription": "Artículos de bazar, decoración y regalos importados a precio de mayorista.",
+        "longDescription": "Un bazar con miles de artículos para el hogar, la oficina y las fiestas: desde adornos hasta organizadores. Renovamos el catálogo cada mes con novedades importadas y armamos pedidos al por mayor para tiendas de barrio.",
+        "categoryId": "imports",
+        "rating": 4.3,
+        "products": [
+          "Decoración del hogar",
+          "Artículos de fiesta",
+          "Organizadores y cajas",
+          "Regalos y detalles",
+          "Velas y portavelas",
+          "Relojes de pared"
+        ],
+        "location": {
+          "district": "Los Olivos",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/bazar-global-express/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.bazarglobalexpress",
+          "instagram": "https://www.instagram.com/chambeape.bazarglobalexpress",
+          "tiktok": "https://www.tiktok.com/@chambeape.bazarglobalexpress",
+          "whatsapp": "900000018"
+        },
+        "photoUrls": [
+          "/emprendimientos/bazar-global-express/galeria-1.webp",
+          "/emprendimientos/bazar-global-express/galeria-2.webp",
+          "/emprendimientos/bazar-global-express/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-cargo-sur-importaciones",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Cargo Sur Importaciones",
+        "shortDescription": "Importamos por ti desde China y EE. UU., con seguimiento y entrega en Lima.",
+        "longDescription": "Servicio de compra e importación por encargo para emprendedores y familias. Gestionamos la compra, el flete marítimo o aéreo y la aduana, y te avisamos en cada etapa hasta entregarte la carga en tu puerta.",
+        "categoryId": "imports",
+        "rating": 4.7,
+        "verified": true,
+        "products": [
+          "Importación por encargo",
+          "Flete aéreo y marítimo",
+          "Gestión de aduana",
+          "Compras en EE. UU.",
+          "Almacén y consolidación de carga",
+          "Entrega a domicilio en Lima"
+        ],
+        "location": {
+          "district": "Surquillo",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/cargo-sur-importaciones/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.cargosurimportaciones",
+          "instagram": "https://www.instagram.com/chambeape.cargosurimportaciones",
+          "tiktok": "https://www.tiktok.com/@chambeape.cargosurimportaciones",
+          "whatsapp": "900000019"
+        },
+        "photoUrls": [
+          "/emprendimientos/cargo-sur-importaciones/galeria-1.webp",
+          "/emprendimientos/cargo-sur-importaciones/galeria-2.webp",
+          "/emprendimientos/cargo-sur-importaciones/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-led-import-peru",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "LED Import Perú",
+        "shortDescription": "Iluminación LED importada para casas, tiendas y negocios.",
+        "longDescription": "Focos, paneles, tiras y reflectores LED de bajo consumo. Asesoramos para ahorrar en la factura de luz y ofrecemos proyectos de iluminación para locales comerciales, con instalación a pedido.",
+        "categoryId": "imports",
+        "rating": 4.4,
+        "products": [
+          "Focos y paneles LED",
+          "Tiras LED decorativas",
+          "Reflectores exteriores",
+          "Lámparas de escritorio",
+          "Luces solares",
+          "Instalación a pedido"
+        ],
+        "location": {
+          "district": "Santa Anita",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/led-import-peru/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.ledimportperu",
+          "instagram": "https://www.instagram.com/chambeape.ledimportperu",
+          "tiktok": "https://www.tiktok.com/@chambeape.ledimportperu",
+          "whatsapp": "900000020"
+        },
+        "photoUrls": [
+          "/emprendimientos/led-import-peru/galeria-1.webp",
+          "/emprendimientos/led-import-peru/galeria-2.webp",
+          "/emprendimientos/led-import-peru/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-bicicletas-andina-import",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Bicicletas Andina Import",
+        "shortDescription": "Bicicletas, scooters y accesorios importados con servicio técnico.",
+        "longDescription": "Importamos bicicletas de montaña, urbanas y eléctricas, además de cascos y repuestos. Cada equipo sale armado y revisado, con taller propio para mantenimiento y garantía de armado de un año.",
+        "categoryId": "imports",
+        "rating": 4.5,
+        "products": [
+          "Bicicletas de montaña",
+          "Bicicletas urbanas",
+          "Scooters eléctricos",
+          "Cascos y protecciones",
+          "Repuestos y llantas",
+          "Mantenimiento en taller"
+        ],
+        "location": {
+          "district": "Jesús María",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/bicicletas-andina-import/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.bicicletasandinaimport",
+          "instagram": "https://www.instagram.com/chambeape.bicicletasandinaimport",
+          "tiktok": "https://www.tiktok.com/@chambeape.bicicletasandinaimport",
+          "whatsapp": "900000021"
+        },
+        "photoUrls": [
+          "/emprendimientos/bicicletas-andina-import/galeria-1.webp",
+          "/emprendimientos/bicicletas-andina-import/galeria-2.webp",
+          "/emprendimientos/bicicletas-andina-import/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-utiles-y-mas-importadores",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Útiles & Más Importadores",
+        "shortDescription": "Útiles escolares y de oficina importados para colegios y empresas.",
+        "longDescription": "Cuadernos, mochilas, colores y material de oficina de marcas internacionales. Armamos listas escolares completas y atendemos pedidos para colegios, academias y oficinas con facturación y entrega programada.",
+        "categoryId": "imports",
+        "rating": 4.3,
+        "products": [
+          "Listas escolares completas",
+          "Cuadernos y libretas",
+          "Lapiceros y marcadores",
+          "Papel y cartulinas",
+          "Material de arte",
+          "Archivadores"
+        ],
+        "location": {
+          "district": "Comas",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/utiles-y-mas-importadores/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.utilesymasimportadores",
+          "instagram": "https://www.instagram.com/chambeape.utilesymasimportadores",
+          "tiktok": "https://www.tiktok.com/@chambeape.utilesymasimportadores",
+          "whatsapp": "900000022"
+        },
+        "photoUrls": [
+          "/emprendimientos/utiles-y-mas-importadores/galeria-1.webp",
+          "/emprendimientos/utiles-y-mas-importadores/galeria-2.webp",
+          "/emprendimientos/utiles-y-mas-importadores/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-maletas-viajeras",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Maletas Viajeras",
+        "shortDescription": "Maletas, mochilas y accesorios de viaje importados, resistentes y livianos.",
+        "longDescription": "Equipaje de cabina y bodega, mochilas de trekking y organizadores de viaje. Trabajamos con fábricas que dan garantía en ruedas y cierres, y hacemos arreglos y cambios de piezas en nuestro taller.",
+        "categoryId": "imports",
+        "rating": 4.4,
+        "products": [
+          "Maletas de cabina",
+          "Maletas de bodega",
+          "Mochilas de trekking",
+          "Organizadores de viaje",
+          "Candados y etiquetas",
+          "Almohadas de cuello"
+        ],
+        "location": {
+          "district": "Villa El Salvador",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/maletas-viajeras/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.maletasviajeras",
+          "instagram": "https://www.instagram.com/chambeape.maletasviajeras",
+          "tiktok": "https://www.tiktok.com/@chambeape.maletasviajeras",
+          "whatsapp": "900000023"
+        },
+        "photoUrls": [
+          "/emprendimientos/maletas-viajeras/galeria-1.webp",
+          "/emprendimientos/maletas-viajeras/galeria-2.webp",
+          "/emprendimientos/maletas-viajeras/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-herramientas-industrial-sur",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Herramientas Industrial Sur",
+        "shortDescription": "Importación de herramientas eléctricas y manuales para talleres y obras.",
+        "longDescription": "Taladros, amoladoras, compresores y herramientas manuales de marcas reconocidas. Atendemos a maestros de obra, carpinteros y talleres metalmecánicos con asesoría técnica y repuestos disponibles.",
+        "categoryId": "imports",
+        "rating": 4.6,
+        "verified": true,
+        "products": [
+          "Taladros y rotomartillos",
+          "Amoladoras",
+          "Compresores",
+          "Juegos de herramientas manuales",
+          "Sierras y discos",
+          "Equipos de soldadura"
+        ],
+        "location": {
+          "district": "Villa María del Triunfo",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/herramientas-industrial-sur/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.herramientasindustrialsur",
+          "instagram": "https://www.instagram.com/chambeape.herramientasindustrialsur",
+          "tiktok": "https://www.tiktok.com/@chambeape.herramientasindustrialsur",
+          "whatsapp": "900000024"
+        },
+        "photoUrls": [
+          "/emprendimientos/herramientas-industrial-sur/galeria-1.webp",
+          "/emprendimientos/herramientas-industrial-sur/galeria-2.webp",
+          "/emprendimientos/herramientas-industrial-sur/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-celulares-plus-import",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Celulares Plus Import",
+        "shortDescription": "Smartphones, tablets y smartwatches importados, nuevos y reacondicionados.",
+        "longDescription": "Equipos de varias marcas con garantía escrita y soporte técnico propio. Aceptamos tu equipo usado como parte de pago y ofrecemos financiamiento en cuotas con tarjeta.",
+        "categoryId": "imports",
+        "rating": 4.2,
+        "products": [
+          "Smartphones nuevos",
+          "Equipos reacondicionados",
+          "Tablets",
+          "Smartwatches",
+          "Protectores de pantalla",
+          "Servicio técnico"
+        ],
+        "location": {
+          "district": "San Juan de Miraflores",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/celulares-plus-import/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.celularesplusimport",
+          "instagram": "https://www.instagram.com/chambeape.celularesplusimport",
+          "tiktok": "https://www.tiktok.com/@chambeape.celularesplusimport",
+          "whatsapp": "900000025"
+        },
+        "photoUrls": [
+          "/emprendimientos/celulares-plus-import/galeria-1.webp",
+          "/emprendimientos/celulares-plus-import/galeria-2.webp",
+          "/emprendimientos/celulares-plus-import/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-sabores-del-mundo-delicatessen",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Sabores del Mundo Delicatessen",
+        "shortDescription": "Alimentos gourmet importados: quesos, aceites, pastas y dulces del mundo.",
+        "longDescription": "Tienda especializada en productos de Italia, España y Francia: aceites de oliva, quesos madurados, pastas artesanales y chocolates. Armamos canastas de regalo y abastecemos a restaurantes con pedidos programados.",
+        "categoryId": "imports",
+        "rating": 4.8,
+        "verified": true,
+        "products": [
+          "Aceites de oliva",
+          "Quesos madurados",
+          "Pastas artesanales",
+          "Chocolates finos",
+          "Embutidos importados",
+          "Canastas de regalo"
+        ],
+        "location": {
+          "district": "San Isidro",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/sabores-del-mundo-delicatessen/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.saboresdelmundodelicatessen",
+          "instagram": "https://www.instagram.com/chambeape.saboresdelmundodelicatessen",
+          "tiktok": "https://www.tiktok.com/@chambeape.saboresdelmundodelicatessen",
+          "whatsapp": "900000026"
+        },
+        "photoUrls": [
+          "/emprendimientos/sabores-del-mundo-delicatessen/galeria-1.webp",
+          "/emprendimientos/sabores-del-mundo-delicatessen/galeria-2.webp",
+          "/emprendimientos/sabores-del-mundo-delicatessen/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-boutique-luna-moda",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Boutique Luna Moda",
+        "shortDescription": "Moda femenina casual y de oficina con diseños de temporada, tallas S a XL.",
+        "longDescription": "Boutique de ropa femenina con prendas seleccionadas cada temporada: blusas, vestidos y pantalones para el día a día y la oficina. Atención personalizada y cambios dentro de los siete días.",
+        "categoryId": "fashion",
+        "rating": 4.7,
+        "verified": true,
+        "products": [
+          "Blusas y camisas",
+          "Vestidos casuales",
+          "Pantalones de vestir",
+          "Faldas",
+          "Casacas livianas",
+          "Accesorios"
+        ],
+        "location": {
+          "district": "Miraflores",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/boutique-luna-moda/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.boutiquelunamoda",
+          "instagram": "https://www.instagram.com/chambeape.boutiquelunamoda",
+          "tiktok": "https://www.tiktok.com/@chambeape.boutiquelunamoda",
+          "whatsapp": "900000027"
+        },
+        "photoUrls": [
+          "/emprendimientos/boutique-luna-moda/galeria-1.webp",
+          "/emprendimientos/boutique-luna-moda/galeria-2.webp",
+          "/emprendimientos/boutique-luna-moda/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-gamarra-style-jeans",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Gamarra Style Jeans",
+        "shortDescription": "Jeans de fabricación nacional para hombre y mujer, venta directa de fábrica.",
+        "longDescription": "Taller y tienda en el emporio de Gamarra: jeans clásicos, rectos y elásticos, con distintos lavados. Vendemos por unidad y por docena, con precios especiales para quienes revenden en provincias.",
+        "categoryId": "fashion",
+        "rating": 4.6,
+        "verified": true,
+        "products": [
+          "Jeans para mujer",
+          "Jeans para hombre",
+          "Jeans elásticos",
+          "Shorts de jean",
+          "Casacas de jean",
+          "Venta por docena"
+        ],
+        "location": {
+          "district": "La Victoria",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/gamarra-style-jeans/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.gamarrastylejeans",
+          "instagram": "https://www.instagram.com/chambeape.gamarrastylejeans",
+          "tiktok": "https://www.tiktok.com/@chambeape.gamarrastylejeans",
+          "whatsapp": "900000028"
+        },
+        "photoUrls": [
+          "/emprendimientos/gamarra-style-jeans/galeria-1.webp",
+          "/emprendimientos/gamarra-style-jeans/galeria-2.webp",
+          "/emprendimientos/gamarra-style-jeans/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-kids-closet-lima",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Kids Closet Lima",
+        "shortDescription": "Ropa infantil cómoda y colorida para bebés y niños de hasta 12 años.",
+        "longDescription": "Prendas de algodón suave y diseños alegres para cada etapa: bodies, conjuntos, buzos y uniformes. Cuidamos costuras y etiquetas para que la ropa sea cómoda en la piel de los más pequeños.",
+        "categoryId": "fashion",
+        "rating": 4.8,
+        "verified": true,
+        "products": [
+          "Ropa para bebés",
+          "Conjuntos deportivos",
+          "Pijamas infantiles",
+          "Buzos y polos",
+          "Vestidos para niñas",
+          "Uniformes escolares"
+        ],
+        "location": {
+          "district": "Santiago de Surco",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/kids-closet-lima/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.kidsclosetlima",
+          "instagram": "https://www.instagram.com/chambeape.kidsclosetlima",
+          "tiktok": "https://www.tiktok.com/@chambeape.kidsclosetlima",
+          "whatsapp": "900000029"
+        },
+        "photoUrls": [
+          "/emprendimientos/kids-closet-lima/galeria-1.webp",
+          "/emprendimientos/kids-closet-lima/galeria-2.webp",
+          "/emprendimientos/kids-closet-lima/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-sport-fit-peru",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Sport Fit Perú",
+        "shortDescription": "Ropa deportiva técnica para entrenar, correr y rendir mejor.",
+        "longDescription": "Licras, tops, shorts y polos con telas que absorben la humedad y dan libertad de movimiento. Diseñamos prendas para running, gimnasio y yoga, y hacemos uniformes deportivos para equipos y academias.",
+        "categoryId": "fashion",
+        "rating": 4.6,
+        "verified": true,
+        "products": [
+          "Licras y leggings",
+          "Tops deportivos",
+          "Polos dry-fit",
+          "Shorts de running",
+          "Buzos y casacas",
+          "Uniformes para equipos"
+        ],
+        "location": {
+          "district": "La Molina",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/sport-fit-peru/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.sportfitperu",
+          "instagram": "https://www.instagram.com/chambeape.sportfitperu",
+          "tiktok": "https://www.tiktok.com/@chambeape.sportfitperu",
+          "whatsapp": "900000030"
+        },
+        "photoUrls": [
+          "/emprendimientos/sport-fit-peru/galeria-1.webp",
+          "/emprendimientos/sport-fit-peru/galeria-2.webp",
+          "/emprendimientos/sport-fit-peru/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-casacas-andinas",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Casacas Andinas",
+        "shortDescription": "Casacas y abrigos para el invierno limeño y los viajes a la sierra.",
+        "longDescription": "Casacas rompevientos, térmicas y de plumón para hombre, mujer y niños. Combinamos telas importadas con confección local y ofrecemos retoques de medidas para que la prenda te quede como debe.",
+        "categoryId": "fashion",
+        "rating": 4.5,
+        "verified": true,
+        "products": [
+          "Casacas rompevientos",
+          "Casacas térmicas",
+          "Chalecos de plumón",
+          "Polares",
+          "Impermeables",
+          "Gorros y guantes"
+        ],
+        "location": {
+          "district": "Lince",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/casacas-andinas/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.casacasandinas",
+          "instagram": "https://www.instagram.com/chambeape.casacasandinas",
+          "tiktok": "https://www.tiktok.com/@chambeape.casacasandinas",
+          "whatsapp": "900000031"
+        },
+        "photoUrls": [
+          "/emprendimientos/casacas-andinas/galeria-1.webp",
+          "/emprendimientos/casacas-andinas/galeria-2.webp",
+          "/emprendimientos/casacas-andinas/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-caballeros-store",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Caballeros Store",
+        "shortDescription": "Camisas, pantalones y polos para el hombre que cuida su imagen.",
+        "longDescription": "Moda masculina para la oficina y el fin de semana: camisas de algodón, pantalones chinos y polos pima. Ofrecemos asesoría de tallas y ajustes de bastas en el día.",
+        "categoryId": "fashion",
+        "rating": 4.3,
+        "products": [
+          "Camisas de vestir",
+          "Pantalones chinos",
+          "Polos de algodón pima",
+          "Corbatas y accesorios",
+          "Chalecos",
+          "Ropa casual"
+        ],
+        "location": {
+          "district": "Lince",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/caballeros-store/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.caballerosstore",
+          "instagram": "https://www.instagram.com/chambeape.caballerosstore",
+          "tiktok": "https://www.tiktok.com/@chambeape.caballerosstore",
+          "whatsapp": "900000032"
+        },
+        "photoUrls": [
+          "/emprendimientos/caballeros-store/galeria-1.webp",
+          "/emprendimientos/caballeros-store/galeria-2.webp",
+          "/emprendimientos/caballeros-store/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-rosa-real-vestidos",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Rosa Real Vestidos",
+        "shortDescription": "Vestidos de fiesta, gala y quinceañeras a medida o en alquiler.",
+        "longDescription": "Taller de alta costura accesible: vestidos de gala, matrimonio y quince años, con opción de alquiler. Tomamos medidas, hacemos pruebas y entregamos a tiempo para tu evento, con arreglos incluidos.",
+        "categoryId": "fashion",
+        "rating": 4.7,
+        "verified": true,
+        "products": [
+          "Vestidos de gala",
+          "Vestidos de quinceañera",
+          "Alquiler de vestidos",
+          "Ropa para damas de honor",
+          "Arreglos y ajustes",
+          "Confección a medida"
+        ],
+        "location": {
+          "district": "Pueblo Libre",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/rosa-real-vestidos/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.rosarealvestidos",
+          "instagram": "https://www.instagram.com/chambeape.rosarealvestidos",
+          "tiktok": "https://www.tiktok.com/@chambeape.rosarealvestidos",
+          "whatsapp": "900000033"
+        },
+        "photoUrls": [
+          "/emprendimientos/rosa-real-vestidos/galeria-1.webp",
+          "/emprendimientos/rosa-real-vestidos/galeria-2.webp",
+          "/emprendimientos/rosa-real-vestidos/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-polos-peruanos-estampados",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Polos Peruanos Estampados",
+        "shortDescription": "Polos personalizados y estampados para equipos, empresas y eventos.",
+        "longDescription": "Estampamos polos con tu diseño en serigrafía, sublimado o bordado. Hacemos pedidos pequeños para peñas y familias y grandes para empresas, con muestra previa y entrega en 5 a 7 días.",
+        "categoryId": "fashion",
+        "rating": 4.4,
+        "products": [
+          "Polos personalizados",
+          "Estampado serigráfico",
+          "Sublimado",
+          "Bordado de logos",
+          "Polos corporativos",
+          "Gorras personalizadas"
+        ],
+        "location": {
+          "district": "Lima",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/polos-peruanos-estampados/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.polosperuanosestampados",
+          "instagram": "https://www.instagram.com/chambeape.polosperuanosestampados",
+          "tiktok": "https://www.tiktok.com/@chambeape.polosperuanosestampados",
+          "whatsapp": "900000034"
+        },
+        "photoUrls": [
+          "/emprendimientos/polos-peruanos-estampados/galeria-1.webp",
+          "/emprendimientos/polos-peruanos-estampados/galeria-2.webp",
+          "/emprendimientos/polos-peruanos-estampados/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-punto-alpaca-boutique",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Punto Alpaca Boutique",
+        "shortDescription": "Prendas de alpaca y algodón pima en diseños modernos para uso diario.",
+        "longDescription": "Chompas, cárdigans y chalinas tejidas con fibras nobles del Perú, en cortes actuales. Trabajamos con tejedoras de Arequipa y Puno y cuidamos el acabado de cada prenda, con garantía de calidad.",
+        "categoryId": "fashion",
+        "rating": 4.5,
+        "products": [
+          "Chompas de alpaca",
+          "Cárdigans",
+          "Chalinas y ponchos",
+          "Gorros de lana",
+          "Guantes y mitones",
+          "Vestidos de punto"
+        ],
+        "location": {
+          "district": "Barranco",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/punto-alpaca-boutique/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.puntoalpacaboutique",
+          "instagram": "https://www.instagram.com/chambeape.puntoalpacaboutique",
+          "tiktok": "https://www.tiktok.com/@chambeape.puntoalpacaboutique",
+          "whatsapp": "900000035"
+        },
+        "photoUrls": [
+          "/emprendimientos/punto-alpaca-boutique/galeria-1.webp",
+          "/emprendimientos/punto-alpaca-boutique/galeria-2.webp",
+          "/emprendimientos/punto-alpaca-boutique/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-pasos-firmes-calzado",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Pasos Firmes Calzado",
+        "shortDescription": "Zapatos y zapatillas cómodos para toda la familia, de fabricación nacional.",
+        "longDescription": "Calzado de cuero y sintético hecho en talleres de Lima: escolar, de vestir y casual. Medimos tu pie, recomendamos la horma ideal y ofrecemos reparaciones y cambio de suelas.",
+        "categoryId": "fashion",
+        "rating": 4.5,
+        "verified": true,
+        "products": [
+          "Zapatos escolares",
+          "Zapatos de vestir",
+          "Zapatillas urbanas",
+          "Sandalias",
+          "Botines de cuero",
+          "Reparación y cambio de suelas"
+        ],
+        "location": {
+          "district": "Ate",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/pasos-firmes-calzado/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.pasosfirmescalzado",
+          "instagram": "https://www.instagram.com/chambeape.pasosfirmescalzado",
+          "tiktok": "https://www.tiktok.com/@chambeape.pasosfirmescalzado",
+          "whatsapp": "900000036"
+        },
+        "photoUrls": [
+          "/emprendimientos/pasos-firmes-calzado/galeria-1.webp",
+          "/emprendimientos/pasos-firmes-calzado/galeria-2.webp",
+          "/emprendimientos/pasos-firmes-calzado/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-uniformes-perfecto-trabajo",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Uniformes Perfecto Trabajo",
+        "shortDescription": "Uniformes y ropa de trabajo para empresas, colegios y clínicas.",
+        "longDescription": "Confeccionamos uniformes corporativos, médicos y de seguridad con tela resistente y bordado de logo. Atendemos pedidos por volumen con muestra previa y entregas escalonadas para tu personal.",
+        "categoryId": "fashion",
+        "rating": 4.6,
+        "verified": true,
+        "products": [
+          "Uniformes corporativos",
+          "Ropa médica",
+          "Overoles y chalecos",
+          "Uniformes escolares",
+          "Bordado de logotipos",
+          "Mandiles y delantales"
+        ],
+        "location": {
+          "district": "Independencia",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/uniformes-perfecto-trabajo/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.uniformesperfectotrabajo",
+          "instagram": "https://www.instagram.com/chambeape.uniformesperfectotrabajo",
+          "tiktok": "https://www.tiktok.com/@chambeape.uniformesperfectotrabajo",
+          "whatsapp": "900000037"
+        },
+        "photoUrls": [
+          "/emprendimientos/uniformes-perfecto-trabajo/galeria-1.webp",
+          "/emprendimientos/uniformes-perfecto-trabajo/galeria-2.webp",
+          "/emprendimientos/uniformes-perfecto-trabajo/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-dulces-suenos-pijamas",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Dulces Sueños Pijamas",
+        "shortDescription": "Pijamas, batas y ropa de descanso en algodón suave para toda la familia.",
+        "longDescription": "Pijamas de algodón pima, franela y satén, con diseños para niños, mujeres y hombres. Armamos sets de regalo para cumpleaños y baby showers con empaque especial.",
+        "categoryId": "fashion",
+        "rating": 4.4,
+        "products": [
+          "Pijamas de algodón",
+          "Batas de baño",
+          "Camisones",
+          "Pijamas infantiles",
+          "Medias y pantuflas",
+          "Sets de regalo"
+        ],
+        "location": {
+          "district": "Los Olivos",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/dulces-suenos-pijamas/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.dulcessuenospijamas",
+          "instagram": "https://www.instagram.com/chambeape.dulcessuenospijamas",
+          "tiktok": "https://www.tiktok.com/@chambeape.dulcessuenospijamas",
+          "whatsapp": "900000038"
+        },
+        "photoUrls": [
+          "/emprendimientos/dulces-suenos-pijamas/galeria-1.webp",
+          "/emprendimientos/dulces-suenos-pijamas/galeria-2.webp",
+          "/emprendimientos/dulces-suenos-pijamas/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-lima-51-streetwear",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Lima 51 Streetwear",
+        "shortDescription": "Ropa urbana con identidad limeña: polos oversize, hoodies y gorras.",
+        "longDescription": "Marca local de streetwear con diseños inspirados en Lima. Producimos tiradas cortas de polos oversize, hoodies y gorras, y colaboramos con ilustradores y artistas urbanos de la ciudad.",
+        "categoryId": "fashion",
+        "rating": 4.3,
+        "products": [
+          "Polos oversize",
+          "Hoodies",
+          "Gorras",
+          "Joggers",
+          "Bolsos urbanos",
+          "Ediciones limitadas"
+        ],
+        "location": {
+          "district": "San Miguel",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/lima-51-streetwear/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.lima51streetwear",
+          "instagram": "https://www.instagram.com/chambeape.lima51streetwear",
+          "tiktok": "https://www.tiktok.com/@chambeape.lima51streetwear",
+          "whatsapp": "900000039"
+        },
+        "photoUrls": [
+          "/emprendimientos/lima-51-streetwear/galeria-1.webp",
+          "/emprendimientos/lima-51-streetwear/galeria-2.webp",
+          "/emprendimientos/lima-51-streetwear/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-curvas-moda-plus",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Curvas Moda Plus",
+        "shortDescription": "Moda en tallas grandes con cortes que favorecen y telas cómodas.",
+        "longDescription": "Ropa elegante y cómoda de la talla 16 en adelante: blusas, vestidos, pantalones y ropa de oficina. Probadores amplios, asesoría de imagen y arreglos incluidos.",
+        "categoryId": "fashion",
+        "rating": 4.4,
+        "products": [
+          "Vestidos tallas grandes",
+          "Blusas y túnicas",
+          "Pantalones elásticos",
+          "Ropa de oficina",
+          "Ropa deportiva",
+          "Abrigos"
+        ],
+        "location": {
+          "district": "Santa Anita",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/curvas-moda-plus/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.curvasmodaplus",
+          "instagram": "https://www.instagram.com/chambeape.curvasmodaplus",
+          "tiktok": "https://www.tiktok.com/@chambeape.curvasmodaplus",
+          "whatsapp": "900000040"
+        },
+        "photoUrls": [
+          "/emprendimientos/curvas-moda-plus/galeria-1.webp",
+          "/emprendimientos/curvas-moda-plus/galeria-2.webp",
+          "/emprendimientos/curvas-moda-plus/galeria-3.webp"
+        ]
+      },
+      {
+        "id": "ent-costa-verano-trajes-de-bano",
+        "ownerUserId": "usr-yuliana-rios-del-aguila",
+        "ownerDni": "00000000",
+        "businessName": "Costa Verano Trajes de Baño",
+        "shortDescription": "Trajes de baño, pareos y ropa de playa para el verano limeño.",
+        "longDescription": "Bikinis, enterizos, shorts de baño y salidas de playa en telas que no pierden color ni forma. Vendemos por temporada y atendemos pedidos por mayor a tiendas de playa del sur de Lima.",
+        "categoryId": "fashion",
+        "rating": 4.5,
+        "products": [
+          "Bikinis y enterizos",
+          "Shorts de baño",
+          "Pareos y salidas de playa",
+          "Ropa de playa para niños",
+          "Sombreros y gorros",
+          "Sandalias de playa"
+        ],
+        "location": {
+          "district": "San Bartolo",
+          "province": "Lima",
+          "department": "Lima"
+        },
+        "coverImageUrl": "/emprendimientos/costa-verano-trajes-de-bano/portada.webp",
+        "socialLinks": {
+          "facebook": "https://www.facebook.com/chambeape.costaveranotrajesdebano",
+          "instagram": "https://www.instagram.com/chambeape.costaveranotrajesdebano",
+          "tiktok": "https://www.tiktok.com/@chambeape.costaveranotrajesdebano",
+          "whatsapp": "900000041"
+        },
+        "photoUrls": [
+          "/emprendimientos/costa-verano-trajes-de-bano/galeria-1.webp",
+          "/emprendimientos/costa-verano-trajes-de-bano/galeria-2.webp",
+          "/emprendimientos/costa-verano-trajes-de-bano/galeria-3.webp"
+        ]
+      }
+    
   ]
 }

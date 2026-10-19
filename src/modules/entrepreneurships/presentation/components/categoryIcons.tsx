@@ -1,6 +1,7 @@
 import CheckroomRoundedIcon from '@mui/icons-material/CheckroomRounded'
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded'
 import HandymanRoundedIcon from '@mui/icons-material/HandymanRounded'
+import LocalShippingRoundedIcon from '@mui/icons-material/LocalShippingRounded'
 import RestaurantRoundedIcon from '@mui/icons-material/RestaurantRounded'
 import SpaRoundedIcon from '@mui/icons-material/SpaRounded'
 import WeekendRoundedIcon from '@mui/icons-material/WeekendRounded'
@@ -14,4 +15,5 @@ export const categoryIcons: Record<EntrepreneurshipCategory['icon'], ReactElemen
   beauty: <SpaRoundedIcon fontSize="small" />,
   home: <WeekendRoundedIcon fontSize="small" />,
   construction: <ConstructionRoundedIcon fontSize="small" />,
+  imports: <LocalShippingRoundedIcon fontSize="small" />,
 }

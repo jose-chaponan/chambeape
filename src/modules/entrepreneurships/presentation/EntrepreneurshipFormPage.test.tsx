@@ -3,6 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { AppProviders } from '../../../app/AppProviders'
 import { AppRoutes } from '../../../app/routes/AppRouter'
+import { localDatabase } from '../../../data/localDatabase'
 import { useAuthStore } from '../../authentication/state/useAuthStore'
 import type { User } from '../../users/domain/User'
 import { ENTREPRENEURSHIP_STORAGE_KEY, useEntrepreneurshipStore } from '../state/useEntrepreneurshipStore'
@@ -140,7 +141,7 @@ describe('EntrepreneurshipFormPage', () => {
 
     renderAt('/home')
     expect(screen.getByRole('heading', { name: 'Dulces Pachacámac' })).toBeInTheDocument()
-    expect(screen.getByText('12 emprendimientos')).toBeInTheDocument()
+    expect(screen.getByText(`${localDatabase.entrepreneurships.length + 1} emprendimientos`)).toBeInTheDocument()
   })
 
   it('rejects links that are not http(s) so they never become clickable scripts', () => {

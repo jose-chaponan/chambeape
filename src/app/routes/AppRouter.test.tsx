@@ -76,7 +76,9 @@ describe('application routes', () => {
     expect(screen.getByRole('heading', { name: 'Aún no tienes emprendimientos publicados' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Sabor Andino' })).toBeInTheDocument()
     expect(screen.queryByText('Imagen próximamente')).not.toBeInTheDocument()
-    expect(screen.getAllByLabelText('Calificación: 4.8 de 5')).toHaveLength(4)
+    expect(screen.getAllByLabelText('Calificación: 4.8 de 5')).toHaveLength(
+      localDatabase.entrepreneurships.filter((entrepreneurship) => entrepreneurship.rating === 4.8).length,
+    )
 
     fireEvent.click(screen.getByRole('button', { name: 'Artesanía' }))
 
@@ -168,7 +170,7 @@ describe('application routes', () => {
       expect(screen.getAllByText(entrepreneurship.location.district, { exact: false }).length).toBeGreaterThan(0)
       unmount()
     })
-  })
+  }, 60_000)
 
   it('shows the social networks and a WhatsApp contact button on the detail', () => {
     useAuthStore.getState().startSession(user)
@@ -417,7 +419,7 @@ describe('application routes', () => {
   })
 
   it('keeps all entrepreneurship descriptions within their specified limits', () => {
-    expect(localDatabase.entrepreneurships).toHaveLength(11)
+    expect(localDatabase.entrepreneurships).toHaveLength(41)
     for (const entrepreneurship of localDatabase.entrepreneurships) {
       expect(entrepreneurship.shortDescription.length).toBeLessThanOrEqual(100)
       expect(entrepreneurship.longDescription.length).toBeLessThanOrEqual(400)
