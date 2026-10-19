@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import { useState, type ReactNode } from 'react'
+import { InstallPrompt } from '../../../../shared/components/InstallPrompt'
 import { useAuthStore } from '../../../authentication/state/useAuthStore'
 import { useCurrentUser } from '../../../users/state/useCurrentUser'
 import { AccountDrawer } from './AccountDrawer'
@@ -36,6 +37,7 @@ export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
       />
       {children}
       <MobileBottomNav />
+      <InstallPrompt />
     </Box>
   )
 }
