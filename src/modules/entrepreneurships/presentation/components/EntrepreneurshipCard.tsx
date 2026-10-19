@@ -94,14 +94,23 @@ export function EntrepreneurshipCard({ entrepreneurship, category, linkState }: 
             bgcolor: 'rgba(255, 255, 255, 0.92)',
           }}
         >
-          <StarRoundedIcon aria-hidden="true" sx={{ color: '#e5a900', fontSize: { xs: 16, sm: 18 } }} />
-          <Typography
-            aria-label={`Calificación: ${rating} de 5`}
-            variant="body2"
-            sx={{ fontSize: { xs: '0.75rem', sm: '0.85rem' }, fontWeight: 800 }}
-          >
-            {rating.toFixed(1)}
-          </Typography>
+          {rating > 0 ? (
+            <>
+              <StarRoundedIcon aria-hidden="true" sx={{ color: '#e5a900', fontSize: { xs: 16, sm: 18 } }} />
+              <Typography
+                aria-label={`Calificación: ${rating} de 5`}
+                variant="body2"
+                sx={{ fontSize: { xs: '0.75rem', sm: '0.85rem' }, fontWeight: 800 }}
+              >
+                {rating.toFixed(1)}
+              </Typography>
+            </>
+          ) : (
+            // Un emprendimiento recién creado todavía no tiene calificaciones.
+            <Typography variant="body2" sx={{ fontSize: { xs: '0.75rem', sm: '0.85rem' }, fontWeight: 800 }}>
+              Nuevo
+            </Typography>
+          )}
         </Stack>
       </Box>
       <CardContent

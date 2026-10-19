@@ -267,6 +267,36 @@ describe('application routes', () => {
     expect(within(plainHeader).queryByRole('img', { name: 'Emprendimiento verificado' })).not.toBeInTheDocument()
   })
 
+  it('invites the user to create an entrepreneurship from Home instead of saying it is coming soon', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/home')
+
+    expect(screen.queryByText(/Creación de emprendimientos/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Próximamente podrás crear/)).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Crear mi emprendimiento' })).toHaveAttribute(
+      'href',
+      '/mi-emprendimiento/nuevo',
+    )
+  })
+
+  it('links Home to Mi emprendimiento when the user already has one', () => {
+    useAuthStore.getState().startSession(admin)
+    renderRoute('/home')
+
+    expect(screen.getByRole('link', { name: 'Ir a mi emprendimiento' })).toHaveAttribute('href', '/mi-emprendimiento')
+    expect(screen.queryByRole('link', { name: 'Crear mi emprendimiento' })).not.toBeInTheDocument()
+  })
+
+  it('uses the singular when only one entrepreneurship matches', () => {
+    useAuthStore.getState().startSession(user)
+    renderRoute('/home')
+
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Buscar producto o servicio' }), {
+      target: { value: 'pachamanca' },
+    })
+    expect(screen.getByText('1 emprendimiento')).toBeInTheDocument()
+  })
+
   it('shows breadcrumbs on every inner screen', () => {
     useAuthStore.getState().startSession(admin)
 

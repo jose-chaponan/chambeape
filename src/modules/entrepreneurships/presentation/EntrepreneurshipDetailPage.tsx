@@ -1,3 +1,4 @@
+import EditRoundedIcon from '@mui/icons-material/EditRounded'
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded'
@@ -9,13 +10,11 @@ import type { SxProps, Theme } from '@mui/material'
 import { Box, Button, Chip, Container, Divider, Paper, Stack, Typography } from '@mui/material'
 import { useEffect, useMemo, type ReactElement } from 'react'
 import { Link as RouterLink, useLocation, useParams } from 'react-router-dom'
-import {
-  getAllEntrepreneurships,
-  getEntrepreneurshipById,
-  getEntrepreneurshipCategories,
-} from '../../../app/container'
+import { getEntrepreneurshipCategories } from '../../../app/container'
 import { APP_BAR_HEIGHT } from '../../../app/theme/appTheme'
 import { TikTokIcon } from '../../../shared/components/TikTokIcon'
+import { useAuthStore } from '../../authentication/state/useAuthStore'
+import { useEntrepreneurships } from '../state/useEntrepreneurships'
 import { getRelatedEntrepreneurships } from '../application/SearchEntrepreneurships'
 import type { Entrepreneurship } from '../domain/Entrepreneurship'
 import { AppBreadcrumbs, type BreadcrumbItem } from './components/AppBreadcrumbs'
@@ -101,17 +100,19 @@ function SectionTitle({ children, id }: Readonly<{ children: string; id: string 
 export function EntrepreneurshipDetailPage() {
   const { entrepreneurshipId = '' } = useParams()
   const cameFromMine = (useLocation().state as { from?: string } | null)?.from === 'mine'
+  const catalog = useEntrepreneurships()
+  const userId = useAuthStore((state) => state.session?.user.id)
   const entrepreneurship = useMemo(
-    () => getEntrepreneurshipById.execute(entrepreneurshipId),
-    [entrepreneurshipId],
+    () => catalog.find((item) => item.id === entrepreneurshipId),
+    [catalog, entrepreneurshipId],
   )
   const categories = useMemo(() => getEntrepreneurshipCategories.execute(), [])
   const related = useMemo(
     () =>
       entrepreneurship
-        ? getRelatedEntrepreneurships(getAllEntrepreneurships.execute(), entrepreneurship)
+        ? getRelatedEntrepreneurships(catalog, entrepreneurship)
         : [],
-    [entrepreneurship],
+    [catalog, entrepreneurship],
   )
 
   useEffect(() => {
@@ -204,12 +205,16 @@ export function EntrepreneurshipDetailPage() {
                     size="small"
                     sx={{ fontWeight: 700 }}
                   />
-                  <Stack direction="row" spacing={0.25} sx={{ alignItems: 'center' }}>
-                    <StarRoundedIcon aria-hidden="true" sx={{ color: '#e5a900', fontSize: 20 }} />
-                    <Typography aria-label={`Calificación: ${rating} de 5`} sx={{ fontWeight: 800 }}>
-                      {rating.toFixed(1)}
-                    </Typography>
-                  </Stack>
+                  {rating > 0 ? (
+                    <Stack direction="row" spacing={0.25} sx={{ alignItems: 'center' }}>
+                      <StarRoundedIcon aria-hidden="true" sx={{ color: '#e5a900', fontSize: 20 }} />
+                      <Typography aria-label={`Calificación: ${rating} de 5`} sx={{ fontWeight: 800 }}>
+                        {rating.toFixed(1)}
+                      </Typography>
+                    </Stack>
+                  ) : (
+                    <Typography sx={{ fontWeight: 800 }}>Nuevo en Chambea Pe</Typography>
+                  )}
                 </Stack>
                 {/* El check vive fuera del h1 (para no alterar su nombre) y se centra con el título. */}
                 <Stack
@@ -231,6 +236,19 @@ export function EntrepreneurshipDetailPage() {
                     {location.district}, {location.department}
                   </Typography>
                 </Stack>
+                {entrepreneurship.ownerUserId === userId && (
+                  <Button
+                    component={RouterLink}
+                    to={`/mi-emprendimiento/${entrepreneurship.id}/editar`}
+                    variant="outlined"
+                    color="inherit"
+                    size="small"
+                    startIcon={<EditRoundedIcon />}
+                    sx={{ mt: 2 }}
+                  >
+                    Editar mi emprendimiento
+                  </Button>
+                )}
               </Box>
 
               <Box component="section" aria-labelledby="sobre-heading">
@@ -276,9 +294,6 @@ export function EntrepreneurshipDetailPage() {
                     </Box>
                   ))}
                 </Box>
-                <Typography color="text.secondary" variant="body2" sx={{ mt: 1.5 }}>
-                  Algunos de sus productos y servicios, a modo de ejemplo.
-                </Typography>
               </Box>
             </Stack>
 

@@ -2,6 +2,7 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded'
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded'
+import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded'
 import { Link as RouterLink } from 'react-router-dom'
 import {
   Avatar,
@@ -51,6 +52,16 @@ export function AccountDrawer({ open, user, onClose, onLogout }: Readonly<Accoun
       </Stack>
       <Divider />
       <List aria-label="Opciones de cuenta" sx={{ py: 1 }}>
+        {/* En móvil ya está en la barra inferior; en escritorio vive aquí. */}
+        <ListItemButton
+          component={RouterLink}
+          to="/mi-emprendimiento"
+          onClick={onClose}
+          sx={{ display: { xs: 'none', md: 'flex' } }}
+        >
+          <ListItemIcon><StorefrontRoundedIcon /></ListItemIcon>
+          <ListItemText primary="Mi emprendimiento" />
+        </ListItemButton>
         <ListItemButton component={RouterLink} to="/perfil" onClick={onClose}>
           <ListItemIcon><AccountCircleRoundedIcon /></ListItemIcon>
           <ListItemText primary="Mi perfil" />

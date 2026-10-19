@@ -1,12 +1,9 @@
 import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded'
 import { Box, Chip, Container, Paper, Stack, Typography } from '@mui/material'
 import { useMemo, useState } from 'react'
-import {
-  getAllEntrepreneurships,
-  getEntrepreneurshipCategories,
-  getEntrepreneurshipsForUser,
-} from '../../../app/container'
+import { getEntrepreneurshipCategories } from '../../../app/container'
 import { APP_BAR_HEIGHT } from '../../../app/theme/appTheme'
+import { useEntrepreneurships } from '../state/useEntrepreneurships'
 import { useCurrentUser } from '../../users/state/useCurrentUser'
 import {
   getEntrepreneurshipDistricts,
@@ -25,9 +22,10 @@ export function HomePage() {
   const currentUser = useCurrentUser()
   const userId = currentUser?.id
 
+  const catalog = useEntrepreneurships()
   const ownedCount = useMemo(
-    () => (userId ? getEntrepreneurshipsForUser.execute(userId).length : 0),
-    [userId],
+    () => catalog.filter((entrepreneurship) => entrepreneurship.ownerUserId === userId).length,
+    [catalog, userId],
   )
   const categories = useMemo(() => getEntrepreneurshipCategories.execute(), [])
   const categoryById = useMemo(
@@ -35,8 +33,8 @@ export function HomePage() {
     [categories],
   )
   const allEntrepreneurships = useMemo(
-    () => getAllEntrepreneurships.execute().filter((entrepreneurship) => categoryById.has(entrepreneurship.categoryId)),
-    [categoryById],
+    () => catalog.filter((entrepreneurship) => categoryById.has(entrepreneurship.categoryId)),
+    [catalog, categoryById],
   )
   const districts = useMemo(() => getEntrepreneurshipDistricts(allEntrepreneurships), [allEntrepreneurships])
   const visibleEntrepreneurships = useMemo(
@@ -93,7 +91,7 @@ export function HomePage() {
                 </Typography>
               </Box>
               <Typography color="text.secondary" variant="body2" aria-live="polite" sx={{ flexShrink: 0 }}>
-                {visibleEntrepreneurships.length} emprendimientos
+                {visibleEntrepreneurships.length} {visibleEntrepreneurships.length === 1 ? 'emprendimiento' : 'emprendimientos'}
               </Typography>
             </Stack>
 

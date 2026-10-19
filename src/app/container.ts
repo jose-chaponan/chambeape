@@ -4,13 +4,13 @@ import { GetEntrepreneurshipById } from '../modules/entrepreneurships/applicatio
 import { GetEntrepreneurshipCategories } from '../modules/entrepreneurships/application/GetEntrepreneurshipCategories'
 import { GetEntrepreneurshipsForUser } from '../modules/entrepreneurships/application/GetEntrepreneurshipsForUser'
 import { JsonEntrepreneurshipCategoryRepository } from '../modules/entrepreneurships/infrastructure/JsonEntrepreneurshipCategoryRepository'
-import { JsonEntrepreneurshipRepository } from '../modules/entrepreneurships/infrastructure/JsonEntrepreneurshipRepository'
+import { LocalEntrepreneurshipRepository } from '../modules/entrepreneurships/infrastructure/LocalEntrepreneurshipRepository'
 import { JsonUserRepository } from '../modules/users/infrastructure/JsonUserRepository'
 
 // Composition root: único lugar que conoce las implementaciones concretas (infraestructura).
 // La capa de presentación solo consume casos de uso desde aquí.
 const userRepository = new JsonUserRepository()
-const entrepreneurshipRepository = new JsonEntrepreneurshipRepository()
+const entrepreneurshipRepository = new LocalEntrepreneurshipRepository()
 const categoryRepository = new JsonEntrepreneurshipCategoryRepository()
 
 export const authenticateUser = new AuthenticateUser(userRepository)

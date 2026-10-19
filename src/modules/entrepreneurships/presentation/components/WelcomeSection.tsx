@@ -1,5 +1,6 @@
 import StorefrontRoundedIcon from '@mui/icons-material/StorefrontRounded'
-import { Box, Chip, Paper, Stack, Typography } from '@mui/material'
+import { Box, Button, Chip, Paper, Stack, Typography } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 import type { ResolvedUser } from '../../../users/domain/UserProfile'
 
 interface WelcomeSectionProps {
@@ -26,7 +27,7 @@ export function WelcomeSection({ user, ownedCount }: Readonly<WelcomeSectionProp
     >
       <Stack spacing={{ xs: 3, md: 5 }} sx={{ justifyContent: 'space-between' }}>
         <Box>
-          <Chip label="Bienvenida a Chambea Pe" color="primary" sx={{ mb: 2, fontWeight: 800 }} />
+          <Chip label="Te damos la bienvenida a Chambea Pe" color="primary" sx={{ mb: 2, fontWeight: 800 }} />
           <Typography
             component="h1"
             sx={{ fontSize: { xs: '2.35rem', sm: '3.7rem' }, mb: 2, overflowWrap: 'anywhere' }}
@@ -34,7 +35,7 @@ export function WelcomeSection({ user, ownedCount }: Readonly<WelcomeSectionProp
             Hola, {user.firstNames}.
           </Typography>
           <Typography color="text.secondary" sx={{ fontSize: { xs: '1.05rem', sm: '1.25rem' }, maxWidth: 650 }}>
-            Estás a un paso de mostrar lo que haces al Perú. Este será tu espacio para darle visibilidad a tu emprendimiento.
+            Descubre lo que hacen los emprendedores de Lima y muestra lo tuyo al Perú desde tu propia vitrina.
           </Typography>
         </Box>
       </Stack>
@@ -69,19 +70,18 @@ export function WelcomeSection({ user, ownedCount }: Readonly<WelcomeSectionProp
           {describeOwnedCount(ownedCount)}
         </Typography>
         <Typography color="text.secondary" sx={{ mb: 3 }}>
-          Próximamente podrás crear tu vitrina con tu historia, fotografías y redes sociales.
+          {ownedCount === 0
+            ? 'Crea tu vitrina con tu historia, fotografías y redes sociales para que te encuentren.'
+            : 'Mantén tu vitrina al día: actualiza tus productos, fotos y datos de contacto cuando quieras.'}
         </Typography>
-        <Chip
-          label="Creación de emprendimientos: próximamente"
-          variant="outlined"
-          sx={{
-            alignSelf: 'flex-start',
-            maxWidth: '100%',
-            height: 'auto',
-            fontWeight: 700,
-            '& .MuiChip-label': { whiteSpace: 'normal', py: 0.5 },
-          }}
-        />
+        <Button
+          component={RouterLink}
+          to={ownedCount === 0 ? '/mi-emprendimiento/nuevo' : '/mi-emprendimiento'}
+          variant="contained"
+          sx={{ alignSelf: 'flex-start' }}
+        >
+          {ownedCount === 0 ? 'Crear mi emprendimiento' : 'Ir a mi emprendimiento'}
+        </Button>
       </Paper>
     </Box>
   )
